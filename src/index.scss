@@ -1,0 +1,90 @@
+@import './helpers.scss';
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
+
+html {
+  overflow: hidden;
+}
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+body {
+  color: $primary;
+  position: relative;
+  width: 100%;
+  background: $primary-background;
+  padding: 0;
+}
+#root {
+  overflow: hidden;
+  height: 100%;
+}
+* {
+  font-family: $font-family;
+}
+
+button {
+  cursor: pointer;
+  border-radius: $border-radius;
+  border: none;
+}
+.btn-no-styles {
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  color: inherit;
+  background: none;
+}
+button.submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $secondary;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $primary-background;
+  height: 35px;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $primary-background;
+
+  .icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    animation: rotate 2.5s linear infinite;
+    color: $primary;
+  }
+
+  .message {
+    font-size: 0.9rem;
+    color: $tertiary-text;
+    text-align: center;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
