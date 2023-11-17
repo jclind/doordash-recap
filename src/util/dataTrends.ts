@@ -104,3 +104,56 @@ const getDeliveryHourSegment = (ACTUAL_DELIVERY_TIME: string) => {
     return '21-0'
   }
 }
+
+type Months =
+  | 'jan'
+  | 'feb'
+  | 'mar'
+  | 'apr'
+  | 'may'
+  | 'jun'
+  | 'jul'
+  | 'aug'
+  | 'sep'
+  | 'oct'
+  | 'nov'
+  | 'dec'
+type DeliveriesEachMonth = {
+  [key in Months]: {
+    numDeliveries: number
+    totalDeliveryDuration: number
+  }
+}
+
+const initialDeliveriesEachMonth: DeliveriesEachMonth = {
+  jan: { numDeliveries: 0, totalDeliveryDuration: 0 },
+  feb: { numDeliveries: 0, totalDeliveryDuration: 0 },
+  mar: { numDeliveries: 0, totalDeliveryDuration: 0 },
+  apr: { numDeliveries: 0, totalDeliveryDuration: 0 },
+  may: { numDeliveries: 0, totalDeliveryDuration: 0 },
+  jun: { numDeliveries: 0, totalDeliveryDuration: 0 },
+  jul: { numDeliveries: 0, totalDeliveryDuration: 0 },
+  aug: { numDeliveries: 0, totalDeliveryDuration: 0 },
+  sep: { numDeliveries: 0, totalDeliveryDuration: 0 },
+  oct: { numDeliveries: 0, totalDeliveryDuration: 0 },
+  nov: { numDeliveries: 0, totalDeliveryDuration: 0 },
+  dec: { numDeliveries: 0, totalDeliveryDuration: 0 },
+}
+
+export const getDeliveriesEachMonth = (orderHistory: DoorDashOrderType[]) => {
+  const deliveriesEachMonth: DeliveriesEachMonth = {
+    ...initialDeliveriesEachMonth,
+  }
+
+  orderHistory.forEach(order => {
+    const monthName = new Date(order.ACTUAL_DELIVERY_TIME)
+      .toLocaleString('en-US', { month: 'short' })
+      .toLowerCase() as Months
+    const deliveryDurationMS = getDeliveryDurationMS(order)
+
+    deliveriesEachMonth[monthName].numDeliveries += 1
+    deliveriesEachMonth[monthName].totalDeliveryDuration += deliveryDurationMS
+  })
+
+  return deliveriesEachMonth
+}

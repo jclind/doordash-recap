@@ -9,6 +9,7 @@ import {
 import {
   calcAvgDeliveriesPer3Hours,
   calcAvgDeliveriesPerDayOfWeek,
+  getDeliveriesEachMonth,
 } from './dataTrends'
 
 export const processCSVData = (
@@ -29,7 +30,12 @@ export const processCSVData = (
     calcAvgDeliveriesPerDayOfWeek(currYearOrderHistory)
   const avgDeliveriesPer3Hours =
     calcAvgDeliveriesPer3Hours(currYearOrderHistory)
-  console.log(avgDeliveriesPerDayOfWeek, avgDeliveriesPer3Hours)
+  const deliveriesEachMonth = getDeliveriesEachMonth(currYearOrderHistory)
+  console.log(
+    avgDeliveriesPerDayOfWeek,
+    avgDeliveriesPer3Hours,
+    deliveriesEachMonth
+  )
 
   return { numOrders, ...storeData, ...deliveryTimes, ...itemsData }
 }
