@@ -6,6 +6,7 @@ import {
   StoreData,
   StoreNames,
 } from '../types'
+import { calcAvgDeliveriesPerDayOfWeek } from './dataTrends'
 
 export const processCSVData = (
   orderHistory: DoorDashOrderType[]
@@ -20,6 +21,11 @@ export const processCSVData = (
   // const deliveryTrends = getDeliveryTrends(currYearOrderHistory)
 
   // console.log(deliveryTrends)
+
+  const avgDeliveriesPerDayOfWeek =
+    calcAvgDeliveriesPerDayOfWeek(currYearOrderHistory)
+
+  console.log(avgDeliveriesPerDayOfWeek)
 
   return { numOrders, ...storeData, ...deliveryTimes, ...itemsData }
 }
