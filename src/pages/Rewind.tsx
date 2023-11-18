@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { DoorDashOrderType, RewindData } from '../types'
+import NumDeliveries from './RewindPages/NumDeliveries'
+import { LoadingScreen } from '../components/LoadingScreen'
 
-const Rewind = () => {
-  return <div>Rewind</div>
+type RewindProps = {
+  data: RewindData | null
+}
+
+const Rewind = ({ data }: RewindProps) => {
+  const [currPage, setCurrPage] = useState(0)
+
+  // if (!data) return <LoadingScreen />
+
+  return (
+    <div className='rewind-page'>
+      {currPage === 0 && <NumDeliveries numOrders={1000} numChains={100} />}
+    </div>
+  )
 }
 
 export default Rewind

@@ -6,11 +6,7 @@ import {
   StoreData,
   StoreNames,
 } from '../types'
-import {
-  calcAvgDeliveriesPer3Hours,
-  calcAvgDeliveriesPerDayOfWeek,
-  getDeliveriesEachMonth,
-} from './dataTrends'
+import { getDataTrends } from './dataTrends'
 
 export const processCSVData = (
   orderHistory: DoorDashOrderType[]
@@ -26,16 +22,9 @@ export const processCSVData = (
 
   // console.log(deliveryTrends)
 
-  const avgDeliveriesPerDayOfWeek =
-    calcAvgDeliveriesPerDayOfWeek(currYearOrderHistory)
-  const avgDeliveriesPer3Hours =
-    calcAvgDeliveriesPer3Hours(currYearOrderHistory)
-  const deliveriesEachMonth = getDeliveriesEachMonth(currYearOrderHistory)
-  console.log(
-    avgDeliveriesPerDayOfWeek,
-    avgDeliveriesPer3Hours,
-    deliveriesEachMonth
-  )
+  const trends = getDataTrends(currYearOrderHistory)
+
+  console.log(trends)
 
   return { numOrders, ...storeData, ...deliveryTimes, ...itemsData }
 }
@@ -117,12 +106,8 @@ const getTimesPerDelivery = (
     const deliveryTime = new Date(order.ACTUAL_DELIVERY_TIME).getTime()
     const deliveryDuration = deliveryTime - pickupTime
 
-    // Update total time
     totalDeliveryTimeMS += deliveryDuration
 
-    // Update shortest and longest deliveries
-    // Update shortest and longest deliveries
-    // Update shortest and longest deliveries
     if (
       shortestDelivery === null ||
       deliveryDuration <
@@ -145,15 +130,6 @@ const getTimesPerDelivery = (
       longestDelivery = order
     }
   })
-
-  // const totalTimeMS = orderHistory.reduce((totalTime, order) => {
-  //   const pickupTime = new Date(order.ACTUAL_PICKUP_TIME).getTime()
-  //   const deliveryTime = new Date(order.ACTUAL_DELIVERY_TIME).getTime()
-
-  //   const finalTotal = Math.round(totalTime + (deliveryTime - pickupTime))
-
-  //   return finalTotal
-  // }, 0)
 
   const avgDeliveryTimeMS = Math.round(
     totalDeliveryTimeMS / orderHistory.length

@@ -1,0 +1,332 @@
+@import '../../helpers.scss';
+
+.num-deliveries-page {
+  // position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $primary-background;
+  height: 100%;
+  width: 100%;
+  color: $primary;
+  .inner-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    max-width: 1000px;
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards 1.3s;
+      text-align: center;
+      span {
+        padding-right: 0.5rem;
+      }
+    }
+    .num-line {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards 1.7s;
+      .num-deliveries {
+        font-size: 8rem;
+        color: $secondary;
+        font-weight: 900;
+        padding-right: 1rem;
+      }
+      .orders-label {
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+      }
+    }
+    .text {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards 2.1s;
+
+      span {
+        color: $tertiary;
+        font-weight: 900;
+        font-size: 3.5rem;
+      }
+    }
+    .images {
+      .driver-img {
+        position: absolute;
+        top: 2rem;
+        left: 0;
+        height: 100px;
+        transform: rotate(15deg);
+      }
+      .driver-car-img {
+        position: absolute;
+        bottom: 2rem;
+        right: -2rem;
+        height: 200px;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .num-line {
+        .num-deliveries {
+          font-size: 7rem;
+        }
+        .orders-label {
+          font-size: 2rem;
+        }
+      }
+      .text {
+        font-size: 2rem;
+        span {
+          font-size: 3rem;
+        }
+      }
+    }
+    @media screen and (max-width: 500px) {
+      h1 {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 1.8rem;
+      }
+      .num-line {
+        .num-deliveries {
+          font-size: 6rem;
+        }
+        .orders-label {
+          font-size: 1.8rem;
+          span {
+            font-size: 2.8rem;
+          }
+        }
+      }
+      .text {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1; /* Fade in to full opacity */
+      transform: translateY(0); /* Move up to the original position */
+    }
+  }
+
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+  }
+  .circle-1 {
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 0;
+    background: $secondary;
+    opacity: 0;
+    animation: circle1IntroAnim 1s ease-out forwards 0.5s,
+      pulse1 5s infinite alternate;
+  }
+  .circle-2 {
+    right: 0;
+    top: 0;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    background: $secondary;
+    animation: circle2IntroAnim 1s ease-out forwards 0.5s,
+      pulse1 5s infinite alternate;
+  }
+  .semi-circle-1 {
+    position: absolute;
+    right: 0rem;
+    bottom: 0rem;
+    height: 5rem;
+    width: 10rem;
+    opacity: 0;
+    border-radius: 0 0 5rem 5rem;
+    background: $tertiary;
+    transform: rotate(-45deg);
+    animation: semiCircleIntroAnim 2s ease-out forwards 1s,
+      pulse2 2s infinite alternate 2s;
+  }
+  .star-icon {
+    position: absolute;
+    top: 0rem;
+    left: 1rem;
+    opacity: 0;
+    color: $tertiary;
+    height: 60px;
+    width: 60px;
+    transform: rotate(360deg);
+    animation: starIntroAnim 1s ease-out forwards 1s,
+      rotateItem 7s infinite alternate 2s;
+  }
+
+  @keyframes pulse1 {
+    to {
+      transform: scale(1.05);
+    }
+  }
+  @keyframes rotateItem {
+    0% {
+      transform: rotate(-10deg); /* Start rotation from -10deg */
+    }
+    50% {
+      transform: rotate(15deg); /* Rotate to 10deg at halfway point */
+    }
+    100% {
+      transform: rotate(-10deg); /* Rotate back to -10deg at the end */
+    }
+  }
+  @keyframes pulse2 {
+    to {
+      opacity: 0.7;
+    }
+  }
+  @keyframes circle1IntroAnim {
+    to {
+      height: 180px;
+      width: 180px;
+      left: -90px;
+      bottom: -90px;
+      opacity: 1;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    @keyframes circle1IntroAnim {
+      to {
+        height: 400px;
+        width: 400px;
+        left: -200px;
+        bottom: -200px;
+        opacity: 1;
+      }
+    }
+  }
+  @media screen and (min-width: 1100px) {
+    @keyframes circle1IntroAnim {
+      to {
+        height: 600px;
+        width: 600px;
+        left: -300px;
+        bottom: -300px;
+        opacity: 1;
+      }
+    }
+  }
+  @keyframes circle2IntroAnim {
+    to {
+      right: -75px;
+      top: -75px;
+      height: 150px;
+      width: 150px;
+      opacity: 1;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    @keyframes circle2IntroAnim {
+      to {
+        right: -150px;
+        top: -150px;
+        height: 300px;
+        width: 300px;
+        opacity: 1;
+      }
+    }
+  }
+  @media screen and (min-width: 1000px) {
+    @keyframes circle2IntroAnim {
+      to {
+        right: -200px;
+        top: -200px;
+        height: 400px;
+        width: 400px;
+        opacity: 1;
+      }
+    }
+  }
+  @keyframes semiCircleIntroAnim {
+    to {
+      right: 0.5rem;
+      bottom: 1.1rem;
+      opacity: 1;
+      height: 2rem;
+      width: 4rem;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    @keyframes semiCircleIntroAnim {
+      to {
+        right: 3rem;
+        bottom: 3rem;
+        height: 4rem;
+        width: 8rem;
+        opacity: 1;
+      }
+    }
+  }
+  @media screen and (min-width: 1000px) {
+    @keyframes semiCircleIntroAnim {
+      to {
+        right: 5rem;
+        bottom: 5rem;
+        opacity: 1;
+      }
+    }
+  }
+  @keyframes starIntroAnim {
+    to {
+      top: 5rem;
+      left: 6rem;
+      opacity: 1;
+      transform: rotate(-10deg);
+    }
+  }
+  @keyframes starIntroAnim {
+    to {
+      top: 2rem;
+      left: 3rem;
+      height: 40px;
+      width: 40px;
+      opacity: 1;
+      transform: rotate(-10deg);
+    }
+  }
+  @media screen and (min-width: 600px) {
+    @keyframes starIntroAnim {
+      to {
+        top: 3rem;
+        left: 4rem;
+        opacity: 1;
+        transform: rotate(-10deg);
+      }
+    }
+  }
+  @media screen and (min-width: 800px) {
+    @keyframes starIntroAnim {
+      to {
+        top: 5rem;
+        left: 6rem;
+        opacity: 1;
+        transform: rotate(-10deg);
+      }
+    }
+  }
+}
