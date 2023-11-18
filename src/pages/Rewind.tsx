@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { DoorDashOrderType, RewindData } from '../types'
 import NumDeliveries from './RewindPages/NumDeliveries'
 import { LoadingScreen } from '../components/LoadingScreen'
+import NumStoresAndItems from './RewindPages/NumStoresAndItems'
 
 type RewindProps = {
   data: RewindData | null
@@ -14,7 +15,21 @@ const Rewind = ({ data }: RewindProps) => {
 
   return (
     <div className='rewind-page'>
-      {currPage === 0 && <NumDeliveries numOrders={1000} numChains={100} />}
+      {currPage === 0 && (
+        <NumDeliveries
+          numOrders={1000}
+          numChains={100}
+          setCurrPage={setCurrPage}
+        />
+      )}
+      {currPage === 1 && (
+        <NumStoresAndItems
+          numOrders={1000}
+          numChains={100}
+          numItems={1400}
+          avgNumItemsPerDelivery={1.43}
+        />
+      )}
     </div>
   )
 }

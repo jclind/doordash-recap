@@ -1,0 +1,60 @@
+import React, { useEffect, useState } from 'react'
+import './NumStoresAndItems.scss'
+
+type NumStoresAndItemsProps = {
+  numOrders: number
+  numChains: number
+  numItems: number
+  avgNumItemsPerDelivery: number
+}
+
+const NumStoresAndItems = ({
+  numOrders,
+  numChains,
+  numItems,
+  avgNumItemsPerDelivery,
+}: NumStoresAndItemsProps) => {
+  return (
+    <div className='num-stores-and-items-page'>
+      <div className='background'></div>
+      <div className='cover'>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div className='inner-container'>
+        <div className='card-container card-container-1'>
+          <div className='card card-top'>
+            <div className='card-content'>
+              <div className='top'>
+                <div className='text'>During {numOrders} orders,</div>
+                <div className='text'>you delivered</div>
+              </div>
+              <div className='text items-text'>
+                <span>{numItems}</span>items
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='card-container card-container-2'>
+          <div className='card card-bottom'>
+            <div className='card-content'>
+              <div className='text text-1'>That's</div>
+              <span className='secondary text-2'>{avgNumItemsPerDelivery}</span>
+              <div className='text text-3'>items per order</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default NumStoresAndItems
