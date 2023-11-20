@@ -7,6 +7,7 @@ import {
   StoreNames,
 } from '../types'
 import { getDataTrends } from './dataTrends'
+import { parseStoreName } from './parseStoreName'
 
 export const processCSVData = (
   orderHistory: DoorDashOrderType[]
@@ -18,13 +19,13 @@ export const processCSVData = (
   const deliveryTimes = getTimesPerDelivery(currYearOrderHistory)
   const itemsData = getItemsData(currYearOrderHistory, numOrders)
 
-  // const deliveryTrends = getDeliveryTrends(currYearOrderHistory)
+  const test = storeData.topIndividualStores.map(val => val.store)
 
-  // console.log(deliveryTrends)
+  console.log(test)
 
   const trends = getDataTrends(currYearOrderHistory)
 
-  console.log(trends)
+  // console.log(trends)
 
   return { numOrders, ...storeData, ...deliveryTimes, ...itemsData }
 }
@@ -45,7 +46,7 @@ const getOrdersThisYear = (orderHistory: DoorDashOrderType[]) => {
 // \s*\(.*?\)\s*: Removes content within parentheses.
 // \s*\d+\s*-\s*: Removes a number followed by a dash.
 // \s*-\s*\d+\s*: Removes a dash followed by a number.
-const chainStoreREGEX = /\s*\(.*?\)\s*|\s*\d+\s*-\s*|\s*-\s*\d+\s*/g
+// const chainStoreREGEX = /\s*\(.*?\)\s*|\s*\d+\s*-\s*|\s*-\s*\d+\s*/g
 
 const getNumUniqueAndTotalStores = (
   currYearOrderHistory: DoorDashOrderType[]
@@ -67,13 +68,14 @@ const getNumUniqueAndTotalStores = (
       })
     }
 
-    // !NEED TO WORK ON STRING FILTERING
-    let modifiedName = 'string'
-    if (order.STORE_NAME.includes('7-Eleven')) {
-      modifiedName = '7-Eleven'
-    } else {
-      modifiedName = order.STORE_NAME.replace(chainStoreREGEX, '')
-    }
+    // // !NEED TO WORK ON STRING FILTERING
+    // let modifiedName = 'string'
+    // if (order.STORE_NAME.includes('7-Eleven')) {
+    //   modifiedName = '7-Eleven'
+    // } else {
+    //   modifiedName = order.STORE_NAME.replace(chainStoreREGEX, '')
+    // }
+    const modifiedName = parseStoreName(order.STORE_NAME)
     const modifiedIndex = chainStores.findIndex(
       item => item.store === modifiedName
     )

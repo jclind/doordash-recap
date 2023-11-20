@@ -16,7 +16,7 @@ const App = () => {
   useEffect(() => {
     if (dataDD) {
       const res = processCSVData(dataDD)
-      console.log(res)
+      console.log(res.topChainStores, res.topIndividualStores)
       navigate('/rewind')
     }
   }, [dataDD])
