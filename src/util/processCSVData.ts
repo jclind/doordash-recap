@@ -67,7 +67,13 @@ const getNumUniqueAndTotalStores = (
       })
     }
 
-    const modifiedName = order.STORE_NAME.replace(chainStoreREGEX, '')
+    // !NEED TO WORK ON STRING FILTERING
+    let modifiedName = 'string'
+    if (order.STORE_NAME.includes('7-Eleven')) {
+      modifiedName = '7-Eleven'
+    } else {
+      modifiedName = order.STORE_NAME.replace(chainStoreREGEX, '')
+    }
     const modifiedIndex = chainStores.findIndex(
       item => item.store === modifiedName
     )

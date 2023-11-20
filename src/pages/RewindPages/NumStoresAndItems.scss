@@ -67,13 +67,14 @@
         // gap: 2rem;
         z-index: 4;
         border-radius: $border-radius;
-        height: 1px;
-        width: 1px;
-        background: $white;
-        opacity: 0.98;
+        height: 0px;
+        width: 0px;
+        // opacity: 0.98;
         box-shadow: $card-box-shadow;
-        box-sizing: border-box;
         border: 2px solid $tertiary;
+        box-sizing: border-box;
+        background: rgba($color: $white, $alpha: 0.55);
+        backdrop-filter: blur(10px);
 
         .card-content {
           display: flex;
