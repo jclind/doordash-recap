@@ -16,6 +16,7 @@ const App = () => {
   useEffect(() => {
     if (dataDD) {
       const res = processCSVData(dataDD)
+      setProcessedData(res)
       console.log(res.topChainStores, res.topIndividualStores)
       navigate('/rewind')
     }

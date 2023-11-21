@@ -1,0 +1,135 @@
+@import '../helpers.scss';
+
+.shareable-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  .shareable-card {
+    width: 350px;
+    height: 475px;
+    padding: 1rem 0.5rem;
+    box-sizing: border-box;
+
+    background: $shareable-card-background;
+
+    $header-line-height: 12px;
+    border-radius: $border-radius;
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+      .header-text {
+        display: flex;
+        align-items: flex-end;
+
+        gap: 0.5rem;
+      }
+      .doordash-logo {
+        display: flex;
+        align-items: flex-end;
+
+        gap: 0.25rem;
+        img {
+          width: 21px;
+          object-fit: contain;
+        }
+        .text {
+          font-size: 0.8rem;
+          font-weight: 800;
+          padding: 0;
+          margin: 0;
+          color: $secondary;
+          line-height: $header-line-height;
+        }
+      }
+      .wrapped-text {
+        font-size: 0.65rem;
+        font-weight: 700;
+        line-height: $header-line-height;
+        height: 100%;
+      }
+      .line {
+        flex: 1;
+        height: 4px;
+
+        background: $secondary;
+        border-radius: 5px;
+        margin-top: 0.25rem;
+      }
+    }
+    .title {
+      font-size: 0.8rem;
+      color: $secondary;
+      font-weight: 700;
+    }
+
+    .body {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+
+      height: 260px;
+      padding: 0 0.75rem;
+      margin-bottom: 3rem;
+      .top-stores-container {
+        height: 100%;
+        .store-list {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          height: 100%;
+          .store-info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            width: 130px;
+            gap: 0.25rem;
+            .store-name {
+              text-transform: capitalize;
+            }
+            .times-delivered {
+              display: flex;
+              gap: 0.5rem;
+              span {
+                color: $tertiary;
+                font-weight: 800;
+              }
+            }
+          }
+        }
+      }
+      .stats-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 125px;
+
+        .stat {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          .number {
+            color: $primary;
+            font-weight: 800;
+            font-size: 2.25rem;
+          }
+        }
+      }
+    }
+    .bottom-info {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 0.25rem;
+      .title,
+      .text {
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+    }
+  }
+}

@@ -19,11 +19,7 @@ export const processCSVData = (
   const deliveryTimes = getTimesPerDelivery(currYearOrderHistory)
   const itemsData = getItemsData(currYearOrderHistory, numOrders)
 
-  const test = storeData.topIndividualStores.map(val => val.store)
-
-  console.log(test)
-
-  const trends = getDataTrends(currYearOrderHistory)
+  // const trends = getDataTrends(currYearOrderHistory)
 
   // console.log(trends)
 

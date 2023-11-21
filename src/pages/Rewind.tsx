@@ -3,13 +3,15 @@ import { DoorDashOrderType, RewindData } from '../types'
 import NumDeliveries from './RewindPages/NumDeliveries'
 import { LoadingScreen } from '../components/LoadingScreen'
 import NumStoresAndItems from './RewindPages/NumStoresAndItems'
+import ShareableCard from '../components/ShareableCard'
 
 type RewindProps = {
   data: RewindData | null
 }
 
 const Rewind = ({ data }: RewindProps) => {
-  const [currPage, setCurrPage] = useState(0)
+  const [currPage, setCurrPage] = useState(2)
+  console.log(data)
 
   // if (!data) return <LoadingScreen />
 
@@ -30,6 +32,7 @@ const Rewind = ({ data }: RewindProps) => {
           avgNumItemsPerDelivery={1.43}
         />
       )}
+      {currPage === 2 && <ShareableCard rewindData={data} />}
     </div>
   )
 }
