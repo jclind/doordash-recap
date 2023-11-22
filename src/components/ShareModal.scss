@@ -1,0 +1,67 @@
+@import '../helpers.scss';
+
+.share-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+  }
+  .card-img-container {
+    max-width: 95%;
+    width: 350px;
+
+    .card-img {
+      border-radius: 10px;
+      position: relative;
+      width: 100%;
+
+      &::before {
+        content: ''; // Create a pseudo-element
+        display: block;
+        padding-top: 128.57%; // Set the padding-top to achieve a 7:9 aspect ratio (height = width * 9/7)
+        border-radius: 10px;
+      }
+      // background:
+      // height: 434px;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.skeleton {
+  animation: loadingAnimation 1.5s infinite ease-in-out;
+  background: linear-gradient(
+    90deg,
+    $shareable-card-background,
+    $shareable-card-background-dark,
+    $shareable-card-background
+  );
+  opacity: 0.98;
+  background-size: 200% 100%;
+  &::before {
+    // background-color: $shareable-card-background; // Set a background color for illustration purposes
+  }
+}
+
+@keyframes loadingAnimation {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

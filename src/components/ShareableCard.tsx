@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import './ShareableCard.scss'
 import { RewindData } from '../types'
 import doordashLogo from '../assets/images/doordash-logo.png'
 import { concatString } from '../util/concatString'
 import { msToMinutes } from '../util/msToMinutes'
 import * as htmlToImage from 'html-to-image'
-import { toJpeg } from 'html-to-image'
+import ShareModal from './ShareModal'
 
 const data: RewindData = {
   numOrders: 588,
@@ -1552,33 +1552,41 @@ type ShareableCardProps = {
   rewindData: RewindData | null
 }
 const ShareableCard = ({ rewindData }: ShareableCardProps) => {
+  const [shareModalOpen, setShareModalOpen] = useState(false)
+
+  const [imgURL, setImgURL] = useState<string | null>(null)
+
   console.log(rewindData)
   const { topChainStores, numOrders, totalDeliveryTimeMS, numChainStores } =
     data
 
   const currYear = new Date().getFullYear()
 
-  const node = document.getElementById('shareable-card')
+  const cardRef = useRef<HTMLDivElement>(null)
 
   const handleShare = () => {
-    if (node) {
-      htmlToImage.toPng(node).then(dataURL => {
+    console.log('testin')
+    if (cardRef.current) {
+      setShareModalOpen(true)
+      htmlToImage.toPng(cardRef.current).then(dataURL => {
         console.log(dataURL)
-        const downloadLink = document.createElement('a')
-        downloadLink.href = dataURL
-        downloadLink.download = 'component_image.png' // Set a default filename
+        // const downloadLink = document.createElement('a')
+        // downloadLink.href = dataURL
+        console.log(dataURL)
+        setImgURL(dataURL)
+        // downloadLink.download = 'component_image.png' // Set a default filename
 
-        document.body.appendChild(downloadLink)
-        downloadLink.click()
-        // Remove the link from the document
-        document.body.removeChild(downloadLink)
+        // document.body.appendChild(downloadLink)
+        // downloadLink.click()
+        // // Remove the link from the document
+        // document.body.removeChild(downloadLink)
       })
     }
   }
 
   return (
     <div className='shareable-card-container'>
-      <div className='shareable-card' id={'shareable-card'}>
+      <div className='shareable-card' ref={cardRef}>
         <div className='header'>
           <div className='header-text'>
             <div className='doordash-logo'>
@@ -1633,10 +1641,18 @@ const ShareableCard = ({ rewindData }: ShareableCardProps) => {
           <div className='title'>Top Dashing Times</div>
           <div className='text'>- Sunday Night / 9PM - 12PM</div>
         </div>
+        <div className='footer'>
+          <div className='link'>doordash-recap.netlify.app</div>
+        </div>
       </div>
       <button className='share-btn btn-no-styles' onClick={handleShare}>
-        Share
+        Share Recap
       </button>
+      <ShareModal
+        isOpen={shareModalOpen}
+        setIsOpen={setShareModalOpen}
+        imgURL={imgURL}
+      />
     </div>
   )
 }

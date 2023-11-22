@@ -4,10 +4,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
   .shareable-card {
     width: 350px;
-    height: 475px;
+    height: 450px;
     padding: 1rem 0.5rem;
     box-sizing: border-box;
 
@@ -19,7 +18,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       .header-text {
         display: flex;
         align-items: flex-end;
@@ -72,7 +71,7 @@
 
       height: 260px;
       padding: 0 0.75rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       .top-stores-container {
         height: 100%;
         .store-list {
@@ -130,6 +129,14 @@
         font-size: 0.8rem;
         font-weight: 700;
       }
+    }
+    .footer {
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.7rem;
+      color: $shareable-card-muted-text;
+      font-weight: 800;
     }
   }
 }
