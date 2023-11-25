@@ -1,11 +1,17 @@
 import React, { useRef, useState } from 'react'
-import './ShareableCard.scss'
-import { RewindData } from '../types'
+import { CopyLinkStatus, RewindData } from '../types'
 import doordashLogo from '../assets/images/doordash-logo.png'
 import { concatString } from '../util/concatString'
 import { msToMinutes } from '../util/msToMinutes'
 import * as htmlToImage from 'html-to-image'
 import ShareModal from './ShareModal'
+import { addDoc, collection, doc, setDoc } from '@firebase/firestore'
+import { db } from '../services/firestore'
+import { customAlphabet } from 'nanoid'
+import './ShareableCard.scss'
+import { useLocation } from 'react-router'
+
+const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 const data: RewindData = {
   numOrders: 588,
@@ -1556,6 +1562,9 @@ const ShareableCard = ({ rewindData }: ShareableCardProps) => {
 
   const [imgURL, setImgURL] = useState<string | null>(null)
 
+  const [copyLinkStatus, setCopyLinkStatus] =
+    useState<CopyLinkStatus>('default')
+
   console.log(rewindData)
   const { topChainStores, numOrders, totalDeliveryTimeMS, numChainStores } =
     data
@@ -1565,14 +1574,11 @@ const ShareableCard = ({ rewindData }: ShareableCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null)
 
   const handleShare = () => {
-    console.log('testin')
     if (cardRef.current) {
       setShareModalOpen(true)
       htmlToImage.toPng(cardRef.current).then(dataURL => {
-        console.log(dataURL)
         // const downloadLink = document.createElement('a')
         // downloadLink.href = dataURL
-        console.log(dataURL)
         setImgURL(dataURL)
         // downloadLink.download = 'component_image.png' // Set a default filename
 
@@ -1582,6 +1588,38 @@ const ShareableCard = ({ rewindData }: ShareableCardProps) => {
         // document.body.removeChild(downloadLink)
       })
     }
+  }
+  const handleCreateAndCopyLink = async () => {
+    if (!data) {
+      console.error(
+        'Something went wrong fetching rewindData, please refresh and try again.'
+      )
+      throw new Error(
+        'Something went wrong fetching rewindData, please refresh and try again.'
+      )
+    }
+    setCopyLinkStatus('loading')
+    const nanoid = customAlphabet(alphabet, 12)
+    const cardID = nanoid()
+    console.log(cardID)
+    try {
+      const sharedCardDataCollection = collection(db, 'sharedCardData')
+      await setDoc(doc(sharedCardDataCollection, cardID), data)
+    } catch (error) {
+      console.error(error)
+      setCopyLinkStatus('default')
+    }
+
+    const baseURL = window.location.origin
+    const link = `${baseURL}/share/${cardID}`
+
+    navigator.clipboard.writeText(link)
+    console.log(link)
+
+    setCopyLinkStatus('copied')
+    setTimeout(() => {
+      setCopyLinkStatus('default')
+    }, 3000)
   }
 
   return (
@@ -1605,12 +1643,9 @@ const ShareableCard = ({ rewindData }: ShareableCardProps) => {
               {topChainStores.slice(0, 6).map(storeData => {
                 const { store, totalTimesDelivered } = storeData
                 return (
-                  <div className='store-info-item'>
+                  <div className='store-info-item' key={storeData.store}>
                     <div className='store-name'>
-                      {concatString(
-                        `${store} testing testing`,
-                        18
-                      ).toLowerCase()}
+                      {concatString(`${store}`, 18).toLowerCase()}
                     </div>
                     <div className='times-delivered'>
                       - <span>{totalTimesDelivered}</span>
@@ -1652,6 +1687,8 @@ const ShareableCard = ({ rewindData }: ShareableCardProps) => {
         isOpen={shareModalOpen}
         setIsOpen={setShareModalOpen}
         imgURL={imgURL}
+        handleCreateAndCopyLink={handleCreateAndCopyLink}
+        copyLinkStatus={copyLinkStatus}
       />
     </div>
   )

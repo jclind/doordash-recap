@@ -6,6 +6,9 @@ import { Route, Routes, useNavigate } from 'react-router-dom'
 import Home from './pages/Home'
 import Rewind from './pages/Rewind'
 import { processCSVData } from './util/processCSVData'
+import Modal from 'react-modal'
+
+Modal.setAppElement('#root')
 
 const App = () => {
   const [dataDD, setDataDD] = useState<DoorDashOrderType[] | null>(null)

@@ -38,3 +38,5 @@ export type RewindData =
     } & StoreData &
       DeliveryTimes &
       ItemData
+
+export type CopyLinkStatus = 'default' | 'loading' | 'copied'

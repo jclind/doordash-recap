@@ -15,7 +15,7 @@
   }
   .card-img-container {
     max-width: 95%;
-    width: 350px;
+    width: 300px;
 
     .card-img {
       border-radius: 10px;
@@ -39,6 +39,48 @@
         object-fit: cover;
       }
     }
+  }
+  .share-options {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 300px;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.25rem;
+      background: $primary;
+      padding: 0.5rem;
+      color: $primary-background;
+      font-weight: 700;
+      font-size: 0.9rem;
+      height: 38px;
+      width: 115px;
+      .icon {
+        height: 22px;
+        width: 22px;
+        color: $primary-background;
+        stroke-width: 10px;
+      }
+    }
+    button.copied {
+      background: $success-green;
+      color: $primary;
+    }
+  }
+  .foot-note {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: $tertiary-text;
+    font-size: 0.7rem;
+    width: 90%;
+    max-width: 300px;
+    text-align: center;
   }
 }
 
