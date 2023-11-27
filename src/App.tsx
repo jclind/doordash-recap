@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Rewind from './pages/Rewind'
 import { processCSVData } from './util/processCSVData'
 import Modal from 'react-modal'
+import ShareCard from './pages/ShareCard'
 
 Modal.setAppElement('#root')
 
@@ -32,6 +33,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home setDataDD={setDataDD} />} />
         <Route path='rewind' element={<Rewind data={processedData} />} />
+        <Route path='share/:recapID' element={<ShareCard />} />
       </Routes>
 
       {/* <div>{user ? 'You are Logged In' : 'You are Logged Out'}</div> */}

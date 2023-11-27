@@ -11,7 +11,6 @@ type RewindProps = {
 
 const Rewind = ({ data }: RewindProps) => {
   const [currPage, setCurrPage] = useState(2)
-  console.log(data)
 
   // if (!data) return <LoadingScreen />
 
@@ -32,7 +31,7 @@ const Rewind = ({ data }: RewindProps) => {
           avgNumItemsPerDelivery={1.43}
         />
       )}
-      {currPage === 2 && <Share rewindData={data} />}
+      {currPage === 2 && <Share recapData={data} />}
     </div>
   )
 }

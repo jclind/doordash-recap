@@ -5,11 +5,10 @@ import { concatString } from '../util/concatString'
 import { msToMinutes } from '../util/msToMinutes'
 import * as htmlToImage from 'html-to-image'
 import ShareModal from './ShareModal'
-import { addDoc, collection, doc, setDoc } from '@firebase/firestore'
+import { collection, doc, setDoc } from '@firebase/firestore'
 import { db } from '../services/firestore'
 import { customAlphabet } from 'nanoid'
 import './ShareableCard.scss'
-import { useLocation } from 'react-router'
 
 const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -1555,9 +1554,13 @@ const data: RewindData = {
 }
 
 type ShareableCardProps = {
-  rewindData: RewindData | null
+  recapData: RewindData | null
+  createYourOwnBtn?: boolean
 }
-const ShareableCard = ({ rewindData }: ShareableCardProps) => {
+const ShareableCard = ({
+  recapData,
+  createYourOwnBtn = false,
+}: ShareableCardProps) => {
   const [shareModalOpen, setShareModalOpen] = useState(false)
 
   const [imgURL, setImgURL] = useState<string | null>(null)
@@ -1565,7 +1568,6 @@ const ShareableCard = ({ rewindData }: ShareableCardProps) => {
   const [copyLinkStatus, setCopyLinkStatus] =
     useState<CopyLinkStatus>('default')
 
-  console.log(rewindData)
   const { topChainStores, numOrders, totalDeliveryTimeMS, numChainStores } =
     data
 
@@ -1601,7 +1603,6 @@ const ShareableCard = ({ rewindData }: ShareableCardProps) => {
     setCopyLinkStatus('loading')
     const nanoid = customAlphabet(alphabet, 12)
     const cardID = nanoid()
-    console.log(cardID)
     try {
       const sharedCardDataCollection = collection(db, 'sharedCardData')
       await setDoc(doc(sharedCardDataCollection, cardID), data)
@@ -1680,9 +1681,16 @@ const ShareableCard = ({ rewindData }: ShareableCardProps) => {
           <div className='link'>doordash-recap.netlify.app</div>
         </div>
       </div>
-      <button className='share-btn btn-no-styles' onClick={handleShare}>
-        Share Recap
-      </button>
+      <div className='action-btns'>
+        <button className='share-btn btn-no-styles' onClick={handleShare}>
+          Share Recap
+        </button>
+        {createYourOwnBtn && (
+          <button className='create-btn btn-no-styles'>
+            Create Your Recap
+          </button>
+        )}
+      </div>
       <ShareModal
         isOpen={shareModalOpen}
         setIsOpen={setShareModalOpen}

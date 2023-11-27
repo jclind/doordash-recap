@@ -4,14 +4,14 @@ import ShareableCard from '../../components/ShareableCard'
 import { RewindData } from '../../types'
 
 type ShareProps = {
-  rewindData: RewindData | null
+  recapData: RewindData | null
 }
 
-const Share = ({ rewindData }: ShareProps) => {
+const Share = ({ recapData }: ShareProps) => {
   return (
     <div className='share-page'>
       <div className='content-container'>
-        <ShareableCard rewindData={rewindData} />
+        <ShareableCard recapData={recapData} />
       </div>
     </div>
   )

@@ -1,6 +1,28 @@
 @import '../helpers.scss';
 
+.ReactModal__Content {
+  overflow: visible;
+  height: 100%;
+  .close-modal {
+    z-index: 1001;
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+
+    .icon {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+
 .share-modal {
+  position: relative;
+  min-height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,10 +30,15 @@
   width: 100%;
   gap: 2rem;
   margin-bottom: 3rem;
+
   h1 {
     font-size: 2rem;
     font-weight: 800;
     text-align: center;
+    @media screen and (max-width: 400px) {
+      font-size: 1.8rem;
+      max-width: 85%;
+    }
   }
   .card-img-container {
     max-width: 95%;
@@ -72,7 +99,7 @@
   }
   .foot-note {
     position: absolute;
-    bottom: 0;
+    bottom: -2rem;
     left: 0;
     right: 0;
     margin: 0 auto;

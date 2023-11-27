@@ -3,12 +3,14 @@ import {
   AiOutlineCheck,
   AiOutlineDownload,
   AiOutlineLink,
+  AiOutlineClose,
 } from 'react-icons/ai'
 import Modal from 'react-modal'
 
 import './ShareModal.scss'
 import { CopyLinkStatus } from '../types'
 import { TailSpin } from 'react-loader-spinner'
+
 const customStyles = {
   content: {
     top: '50%',
@@ -23,9 +25,10 @@ const customStyles = {
   },
   overlay: {
     zIndex: '1000',
-    background: 'rgba(0, 0, 0, 0.6)',
+    background: 'rgba(0, 0, 0, 0.7)',
 
-    backdropFilter: 'blur(3px)',
+    backdropFilter: 'blur(4px)',
+    WebkitBackdropFilter: 'blur(4px)',
   },
 }
 
@@ -70,12 +73,13 @@ const ShareModal = ({
       style={customStyles}
       // contentLabel='Example Modal'
     >
-      <div className='blur-container'></div>
-
+      <button className='close-modal btn-no-styles' onClick={closeModal}>
+        <AiOutlineClose className='icon' />
+      </button>
       <div className='content share-modal'>
         <h1>Share Your Recap With Friends</h1>
         <div className='card-img-container'>
-          <div className={`card-img ${imgURL ? 'skeleton' : ''}`}>
+          <div className={`card-img ${!imgURL ? 'skeleton' : ''}`}>
             {imgURL && <img src={imgURL} alt='Shareable recap card' />}
           </div>
         </div>
