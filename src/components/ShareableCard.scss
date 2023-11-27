@@ -146,7 +146,8 @@
     gap: 2rem;
     margin-top: 2rem;
 
-    button {
+    button,
+    .link {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -164,7 +165,7 @@
         border-color: $secondary-text;
       }
     }
-    button.create-btn {
+    .create-btn {
       background: $secondary;
     }
   }

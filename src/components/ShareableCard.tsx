@@ -9,6 +9,7 @@ import { collection, doc, setDoc } from '@firebase/firestore'
 import { db } from '../services/firestore'
 import { customAlphabet } from 'nanoid'
 import './ShareableCard.scss'
+import { Link } from 'react-router-dom'
 
 const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -1686,9 +1687,9 @@ const ShareableCard = ({
           Share Recap
         </button>
         {createYourOwnBtn && (
-          <button className='create-btn btn-no-styles'>
+          <Link to='/' className='create-btn link btn-no-styles'>
             Create Your Recap
-          </button>
+          </Link>
         )}
       </div>
       <ShareModal

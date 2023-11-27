@@ -1,1 +1,54 @@
 @import '../../helpers.scss';
+
+.share-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  box-sizing: border-box;
+  height: 100%;
+  .share-info {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    p {
+      color: $secondary-text;
+      line-height: 1.25rem;
+    }
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding-top: 1rem;
+      .main-links {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      @media screen and (max-width: 425px) {
+        flex-direction: column;
+        .main-links {
+          flex-direction: column;
+        }
+        a {
+          width: 100%;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: $primary;
+      }
+      a.buy-me-a-coffee {
+        background: $tertiary;
+      }
+    }
+  }
+}
