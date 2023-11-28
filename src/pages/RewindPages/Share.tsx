@@ -47,14 +47,13 @@ const Share = ({ recapData }: ShareProps) => {
           </div>
           <div className='sub-links'>
             <a href='https://github.com/jclind'>
-              <AiFillGithub />
+              <AiFillGithub className='icon' />
             </a>
             <a href='https://www.instagram.com/jclind02/'>
-              <AiOutlineInstagram />
+              <AiOutlineInstagram className='icon' />
             </a>
-
             <a href='https://twitter.com/jclind02'>
-              <AiOutlineTwitter />
+              <AiOutlineTwitter className='icon' />
             </a>
           </div>
         </div>

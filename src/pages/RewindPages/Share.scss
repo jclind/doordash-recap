@@ -9,8 +9,10 @@
   .share-info {
     width: 90%;
     margin: 0 auto;
-    margin-top: 3rem;
     padding-bottom: 2rem;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 3rem;
     .header {
       display: flex;
       align-items: center;
@@ -22,7 +24,9 @@
     }
     .links {
       display: flex;
+      flex-direction: column;
       justify-content: center;
+
       gap: 1rem;
       padding-top: 1rem;
       .main-links {
@@ -32,8 +36,9 @@
         gap: 1rem;
       }
 
-      @media screen and (max-width: 425px) {
+      @media screen and (max-width: 500px) {
         flex-direction: column;
+
         .main-links {
           flex-direction: column;
         }
@@ -42,7 +47,25 @@
         }
       }
 
+      .sub-links {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        gap: 3rem;
+        width: 100%;
+        .icon {
+          height: 28px;
+          width: 28px;
+        }
+        a {
+          width: fit-content;
+        }
+      }
+
       a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-decoration: none;
         color: $primary;
       }
