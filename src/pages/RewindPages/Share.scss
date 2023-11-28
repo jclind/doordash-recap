@@ -1,5 +1,7 @@
 @import '../../helpers.scss';
 
+$base-delay: 0.5s;
+
 .share-page {
   display: flex;
   flex-direction: row;
@@ -9,6 +11,11 @@
   height: 100%;
   max-width: 90%;
   gap: 4rem;
+  .share-card-container {
+    opacity: 0;
+    transform: translateY(6%);
+    animation: fadeInUp 0.3s linear forwards $base-delay;
+  }
   .share-info {
     width: 85%;
     margin: 0 auto;
@@ -18,21 +25,28 @@
     height: fit-content;
     max-width: 500px;
 
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    .title {
+      opacity: 0;
+      transform: translateY(100%);
+      animation: fadeInUp 0.3s linear forwards $base-delay + 0.2s;
     }
     p {
       color: $secondary-text;
       line-height: 1.25rem;
+      opacity: 0;
+      transform: translateY(20%);
+      animation: fadeInUp 0.3s linear forwards $base-delay + 0.4s;
     }
+
     .links {
       display: flex;
       justify-content: center;
 
       gap: 1rem;
       padding-top: 1rem;
+      opacity: 0;
+      transform: translateY(15%);
+      animation: fadeInUp 0.3s linear forwards $base-delay + 0.6s;
 
       .main-links {
         width: 100%;
@@ -104,5 +118,12 @@
     .share-info {
       max-width: 425px;
     }
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Fade in to full opacity */
+    transform: translateY(0); /* Move up to the original position */
   }
 }
