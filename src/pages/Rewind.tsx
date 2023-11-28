@@ -10,18 +10,21 @@ type RewindProps = {
 }
 
 const Rewind = ({ data }: RewindProps) => {
-  const [currPage, setCurrPage] = useState(2)
+  const [clicked, setClicked] = useState(false)
+  const [currPage, setCurrPage] = useState(0)
 
-  // if (!data) return <LoadingScreen />
+  const handleClick = () => {
+    setClicked(true)
+
+    setTimeout(() => {
+      setCurrPage(prev => prev + 1)
+    }, 800)
+  }
 
   return (
-    <div className='rewind-page'>
+    <div className='rewind-page' onClick={handleClick}>
       {currPage === 0 && (
-        <NumDeliveries
-          numOrders={1000}
-          numChains={100}
-          setCurrPage={setCurrPage}
-        />
+        <NumDeliveries numOrders={1000} numChains={100} clicked={clicked} />
       )}
       {currPage === 1 && (
         <NumStoresAndItems
@@ -31,7 +34,7 @@ const Rewind = ({ data }: RewindProps) => {
           avgNumItemsPerDelivery={1.43}
         />
       )}
-      {currPage === 2 && <Share recapData={data} />}
+      {currPage >= 2 && <Share recapData={data} />}
     </div>
   )
 }

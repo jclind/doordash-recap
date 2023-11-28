@@ -6,26 +6,16 @@ import { FaStar } from 'react-icons/fa'
 type NumDeliveriesProps = {
   numOrders: number
   numChains: number
-  setCurrPage: (val: number) => void
+  clicked: boolean
 }
 
 const NumDeliveries = ({
   numOrders,
   numChains,
-  setCurrPage,
+  clicked,
 }: NumDeliveriesProps) => {
-  const [clicked, setClicked] = useState(false)
-
-  const handleClick = () => {
-    setClicked(true)
-
-    setTimeout(() => {
-      setCurrPage(1)
-    }, 800)
-  }
-
   return (
-    <div className='num-deliveries-page' onClick={handleClick}>
+    <div className='num-deliveries-page'>
       {clicked && <div className='cover'></div>}
       <div className='inner-container'>
         <h1>
