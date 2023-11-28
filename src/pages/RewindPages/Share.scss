@@ -2,17 +2,22 @@
 
 .share-page {
   display: flex;
-  flex-direction: column;
-  margin-top: 4rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   height: 100%;
+  max-width: 90%;
+  gap: 4rem;
   .share-info {
-    width: 90%;
+    width: 85%;
     margin: 0 auto;
     padding-bottom: 2rem;
-    width: 80%;
     margin: 0 auto;
     margin-top: 3rem;
+    height: fit-content;
+    max-width: 500px;
+
     .header {
       display: flex;
       align-items: center;
@@ -24,16 +29,29 @@
     }
     .links {
       display: flex;
-      flex-direction: column;
       justify-content: center;
 
       gap: 1rem;
       padding-top: 1rem;
+
       .main-links {
         width: 100%;
         display: flex;
-        justify-content: center;
         gap: 1rem;
+      }
+      .sub-links {
+        display: flex;
+        justify-content: flex-start;
+        margin: 0 auto;
+        gap: 1rem;
+        width: 100%;
+        .icon {
+          height: 28px;
+          width: 28px;
+        }
+        a {
+          width: fit-content;
+        }
       }
 
       @media screen and (max-width: 500px) {
@@ -46,19 +64,23 @@
           width: 100%;
         }
       }
-
-      .sub-links {
-        display: flex;
-        justify-content: center;
-        margin: 0 auto;
-        gap: 3rem;
-        width: 100%;
-        .icon {
-          height: 28px;
-          width: 28px;
+      @media screen and (max-width: 900px) {
+        .main-links {
+          justify-content: center;
         }
-        a {
-          width: fit-content;
+        .sub-links {
+          justify-content: center;
+          gap: 3rem;
+        }
+      }
+      @media screen and (max-width: 1100px) {
+        flex-direction: column;
+        gap: 1.5rem;
+        .main-links {
+          gap: 1.5rem;
+        }
+        .sub-links {
+          gap: 2rem;
         }
       }
 
@@ -72,6 +94,15 @@
       a.buy-me-a-coffee {
         background: $tertiary;
       }
+    }
+  }
+  @media screen and (max-width: 900px) {
+    display: block;
+    margin-top: 4rem;
+    gap: 2rem;
+
+    .share-info {
+      max-width: 425px;
     }
   }
 }

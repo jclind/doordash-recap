@@ -34,25 +34,41 @@ const Share = ({ recapData }: ShareProps) => {
           <div className='main-links'>
             <a
               href='https://www.jesselind.com/'
+              target='_blank'
+              rel='noreferrer'
               className='link personal-website action-btn-boiler-plate action-btn'
             >
               My Personal Website
             </a>
             <a
               href='https://www.buymeacoffee.com/jesseclind'
+              target='_blank'
+              rel='noreferrer'
               className='link buy-me-a-coffee action-btn-boiler-plate'
             >
               Buy Me a Coffee
             </a>
           </div>
           <div className='sub-links'>
-            <a href='https://github.com/jclind'>
+            <a
+              href='https://github.com/jclind'
+              rel='noreferrer'
+              target='_blank'
+            >
               <AiFillGithub className='icon' />
             </a>
-            <a href='https://www.instagram.com/jclind02/'>
+            <a
+              href='https://www.instagram.com/jclind02/'
+              rel='noreferrer'
+              target='_blank'
+            >
               <AiOutlineInstagram className='icon' />
             </a>
-            <a href='https://twitter.com/jclind02'>
+            <a
+              href='https://twitter.com/jclind02'
+              rel='noreferrer'
+              target='_blank'
+            >
               <AiOutlineTwitter className='icon' />
             </a>
           </div>

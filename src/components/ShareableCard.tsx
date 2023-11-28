@@ -10,6 +10,7 @@ import { db } from '../services/firestore'
 import { customAlphabet } from 'nanoid'
 import './ShareableCard.scss'
 import { Link } from 'react-router-dom'
+import { PiShareFatFill } from 'react-icons/pi'
 
 const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -1684,6 +1685,7 @@ const ShareableCard = ({
       </div>
       <div className='action-btns'>
         <button className='share-btn btn-no-styles' onClick={handleShare}>
+          <PiShareFatFill className='icon' />
           Share Recap
         </button>
         {createYourOwnBtn && (
