@@ -1,0 +1,69 @@
+@import '../../helpers.scss';
+
+$base-delay: 0s;
+
+.top-stores-list-page {
+  z-index: 2;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: $yellow;
+
+  .title {
+    font-weight: 700;
+    color: $primary-background;
+
+    opacity: 0;
+    transform: translateY(100%);
+    animation: fadeInUp 1s forwards $base-delay;
+  }
+  .store-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 90%;
+    max-width: 300px;
+
+    .store {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.8rem;
+      color: $primary-background;
+      font-weight: 800;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(100%);
+      animation: fadeInUp 0.7s forwards;
+      .name {
+        flex: 1;
+        text-transform: capitalize;
+      }
+      .times-delivered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $tertiary;
+      }
+
+      @for $i from 1 through 7 {
+        &:nth-child(#{$i}) {
+          $delay: $base-delay + 0.5s + (($i - 1) * 0.2);
+          animation-delay: $delay;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

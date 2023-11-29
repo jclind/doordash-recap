@@ -4,8 +4,9 @@ import NumDeliveries from './RewindPages/NumDeliveries'
 import { LoadingScreen } from '../components/LoadingScreen'
 import NumStoresAndItems from './RewindPages/NumStoresAndItems'
 import Share from './RewindPages/Share'
-import TopStores from './RewindPages/TopStores'
+import SingleTopStore from './RewindPages/SingleTopStore'
 import { Navigate } from 'react-router-dom'
+import TopStoresList from './RewindPages/TopStoresList'
 
 type RewindProps = {
   data: RewindData | null
@@ -19,8 +20,8 @@ const Rewind = ({ data }: RewindProps) => {
     setClicked(true)
 
     setTimeout(() => {
-      // setCurrPage(prev => prev + 1)
-    }, 800)
+      setCurrPage(prev => prev + 1)
+    }, 1000)
   }
 
   if (!data) return <Navigate to='/' />
@@ -31,8 +32,9 @@ const Rewind = ({ data }: RewindProps) => {
       {currPage === 1 && (
         <NumStoresAndItems recapData={data} clicked={clicked} />
       )}
-      {currPage === 2 && <TopStores recapData={data} clicked={clicked} />}
-      {currPage >= 3 && <Share recapData={data} />}
+      {currPage === 2 && <SingleTopStore recapData={data} clicked={clicked} />}
+      {currPage === 3 && <TopStoresList recapData={data} clicked={clicked} />}
+      {currPage >= 4 && <Share recapData={data} />}
     </div>
   )
 }

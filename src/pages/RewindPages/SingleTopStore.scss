@@ -12,7 +12,7 @@ $base-delay: 0.8s;
 
   .initial-page {
     position: absolute;
-    z-index: 3;
+    z-index: 5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,13 +28,14 @@ $base-delay: 0.8s;
       transform: translateY(-10%);
       line-height: 5rem;
       opacity: 0;
-      animation: fadeInUpInitialTitle 0.8s ease-out forwards $base-delay;
 
       width: 90%;
       max-width: 600px;
       text-align: center;
       font-weight: 700;
       font-size: 3rem;
+      animation: fadeInUpInitialTitle 0.8s ease-out forwards $base-delay,
+        scaleText 4s linear forwards $base-delay + 1s;
 
       span.year {
         color: $secondary;
@@ -60,7 +61,7 @@ $base-delay: 0.8s;
   }
   .reveal {
     position: absolute;
-    z-index: 4;
+    z-index: 6;
     top: 0;
     right: 0;
     bottom: 0;
@@ -68,12 +69,13 @@ $base-delay: 0.8s;
     width: 100vw; // Set the width to full viewport width
     height: 100vh; // Set the height to full viewport height
     overflow: hidden;
+    animation: removeElement 0.01s forwards $base-delay + 4.2s;
     .b2,
     .b1 {
       position: absolute;
       width: 100%;
       height: 100%;
-      z-index: 1;
+      z-index: 6;
     }
     .b1 {
       transform: translate(50%, 50%);
@@ -97,10 +99,66 @@ $base-delay: 0.8s;
     }
   }
 
-  .main-page {
-    z-index: 1;
+  .second-page {
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     height: 100%;
     width: 100%;
+    $secondary: #e71801;
+    overflow: hidden;
+    background: $darker-background;
+    box-shadow: $card-box-shadow;
+
+    .background-circle {
+      z-index: 2;
+      position: absolute;
+      width: 800px;
+      img {
+        height: 100%;
+        width: 100%;
+        animation: rotate infinite 25s linear;
+      }
+    }
+
+    .store-name {
+      z-index: 3;
+      color: $secondary;
+      text-transform: uppercase;
+      font-weight: 900;
+      max-width: 500px;
+      text-align: center;
+      text-shadow: 2px 2px 4px darken($secondary, 20%),
+        4px 4px 6px darken($secondary, 30%), 6px 6px 8px darken($secondary, 40%);
+    }
+    .times-delivered {
+      z-index: 3;
+      font-size: 1.1rem;
+      font-weight: 700;
+      span {
+        font-weight: 800;
+        color: $tertiary;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      .background-circle {
+        width: 700px;
+      }
+    }
+  }
+  .second-page.clicked {
+    animation: secondPageExit 0.8s ease-out forwards 0.2s;
+  }
+
+  .background-color {
+    height: 100%;
+    width: 100%;
+    background: $yellow;
   }
 }
 @keyframes slideInDiagonalBottomRight {
@@ -116,6 +174,7 @@ $base-delay: 0.8s;
     animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
   }
   100% {
+    display: none;
     transform: translate(50%, 50%);
   }
 }
@@ -132,6 +191,7 @@ $base-delay: 0.8s;
     animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
   }
   100% {
+    display: none;
     transform: translate(-50%, -50%);
   }
 }
@@ -159,10 +219,29 @@ $base-delay: 0.8s;
     transform: translateX(-150%);
   }
 }
+@keyframes secondPageExit {
+  to {
+    transform: translateY(-110%);
+  }
+}
 
 @keyframes removeElement {
   to {
     display: none;
     z-index: -1000;
+  }
+}
+
+@keyframes scaleText {
+  to {
+    font-size: 3.1rem;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
