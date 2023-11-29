@@ -11,7 +11,7 @@ type TopStoresListProps = {
 const TopStoresList = ({ recapData, clicked }: TopStoresListProps) => {
   const { topChainStores } = recapData
   return (
-    <div className='top-stores-list-page'>
+    <div className={`top-stores-list-page ${clicked ? 'clicked' : ''}`}>
       <div className='title'>Your Top Stores:</div>
       <div className='store-list'>
         {topChainStores.slice(0, 7).map(currStore => {

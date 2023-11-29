@@ -60,6 +60,35 @@ $base-delay: 0s;
     }
   }
 }
+.top-stores-list-page.clicked {
+  background: $primary-background;
+  transition: background 0.5s ease-in-out 0.8s;
+  .title {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeOutUp 0.3s ease-in forwards;
+  }
+  .store-list {
+    .store {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeOutUp 0.3s ease-in forwards;
+      @for $i from 1 through 7 {
+        &:nth-child(#{$i}) {
+          $delay: 0.3s + (($i - 1) * 0.1);
+          animation-delay: $delay;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeOutUp {
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
 
 @keyframes fadeInUp {
   to {
