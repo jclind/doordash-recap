@@ -1,6 +1,6 @@
 import React from 'react'
-import { RewindData } from '../../types'
-import { concatString } from '../../util/concatString'
+import { RewindData } from '../../../types'
+import { concatString } from '../../../util/concatString'
 import './TopStoresList.scss'
 
 type TopStoresListProps = {

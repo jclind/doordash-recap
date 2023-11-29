@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { DoorDashOrderType, RewindData } from '../types'
-import NumDeliveries from './RewindPages/NumDeliveries'
 import { LoadingScreen } from '../components/LoadingScreen'
-import NumStoresAndItems from './RewindPages/NumStoresAndItems'
-import Share from './RewindPages/Share'
-import SingleTopStore from './RewindPages/SingleTopStore'
+import NumStoresAndItems from './RewindPages/NumStoresAndItems/NumStoresAndItems'
+import Share from './RewindPages/Share/Share'
+import SingleTopStore from './RewindPages/SingleTopStore/SingleTopStore'
 import { Navigate } from 'react-router-dom'
-import TopStoresList from './RewindPages/TopStoresList'
+import TopStoresList from './RewindPages/TopStoresList/TopStoresList'
+import NumDeliveries from './RewindPages/NumDelieveries/NumDeliveries'
 
 type RewindProps = {
   data: RewindData | null
@@ -14,13 +14,14 @@ type RewindProps = {
 
 const Rewind = ({ data }: RewindProps) => {
   const [clicked, setClicked] = useState(false)
-  const [currPage, setCurrPage] = useState(2)
+  const [currPage, setCurrPage] = useState(0)
 
   const handleClick = () => {
     setClicked(true)
 
     setTimeout(() => {
       setCurrPage(prev => prev + 1)
+      setClicked(false)
     }, 1000)
   }
 

@@ -1,4 +1,4 @@
-@import '../../helpers.scss';
+@import '../../../helpers.scss';
 
 .num-stores-and-items-page {
   position: relative;
@@ -19,7 +19,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    background: url('../../assets/images/background-icons.png');
+    background: url('../../../assets/images/background-icons.png');
     background-repeat: repeat-y;
     background-position: 0 0;
     // background-size: auto 100%;
@@ -73,8 +73,9 @@
         box-shadow: $card-box-shadow;
         border: 2px solid $tertiary;
         box-sizing: border-box;
-        background: rgba($color: $white, $alpha: 0.55);
-        backdrop-filter: blur(10px);
+        background: rgba($color: $white, $alpha: 0.9);
+        backdrop-filter: blur(1px);
+        --webkit-backdrop-filter: blur(1px);
 
         .card-content {
           display: flex;

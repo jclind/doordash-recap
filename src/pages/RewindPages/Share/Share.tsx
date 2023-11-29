@@ -1,7 +1,7 @@
 import React from 'react'
 import './Share.scss'
-import ShareableCard from '../../components/ShareableCard'
-import { RewindData } from '../../types'
+import ShareableCard from '../../../components/ShareableCard'
+import { RewindData } from '../../../types'
 import {
   AiFillGithub,
   AiOutlineInstagram,

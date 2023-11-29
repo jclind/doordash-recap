@@ -1,4 +1,4 @@
-@import '../../helpers.scss';
+@import '../../../helpers.scss';
 
 $base-delay: 0.8s;
 
@@ -156,6 +156,7 @@ $base-delay: 0.8s;
   }
 
   .background-color {
+    z-index: 1;
     height: 100%;
     width: 100%;
     background: $yellow;

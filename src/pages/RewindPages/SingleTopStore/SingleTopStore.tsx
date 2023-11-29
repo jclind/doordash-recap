@@ -1,9 +1,9 @@
 import React from 'react'
-import { RewindData } from '../../types'
-import jaggedCircle from '../../assets/images/jagged-circle.png'
+import { RewindData } from '../../../types'
+import jaggedCircle from '../../../assets/images/jagged-circle.png'
 import './SingleTopStore.scss'
-import { concatString } from '../../util/concatString'
-import { calcFontSize } from '../../util/calcFontSize'
+import { concatString } from '../../../util/concatString'
+import { calcFontSize } from '../../../util/calcFontSize'
 
 type SingleTopStoresProps = {
   recapData: RewindData

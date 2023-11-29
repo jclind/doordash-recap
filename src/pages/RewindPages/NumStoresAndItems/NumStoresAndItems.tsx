@@ -1,6 +1,6 @@
 import React from 'react'
 import './NumStoresAndItems.scss'
-import { RewindData } from '../../types'
+import { RewindData } from '../../../types'
 
 type NumStoresAndItemsProps = {
   recapData: RewindData
