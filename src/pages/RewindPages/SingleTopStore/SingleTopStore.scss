@@ -152,7 +152,7 @@ $base-delay: 0.8s;
     }
   }
   .second-page.clicked {
-    animation: secondPageExit 0.8s ease-out forwards 0.2s;
+    animation: secondPageExit 1s cubic-bezier(1, -0.01, 0.83, 0.7) forwards;
   }
 
   .background-color {
