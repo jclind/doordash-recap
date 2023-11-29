@@ -4,6 +4,8 @@ import NumDeliveries from './RewindPages/NumDeliveries'
 import { LoadingScreen } from '../components/LoadingScreen'
 import NumStoresAndItems from './RewindPages/NumStoresAndItems'
 import Share from './RewindPages/Share'
+import TopStores from './RewindPages/TopStores'
+import { Navigate } from 'react-router-dom'
 
 type RewindProps = {
   data: RewindData | null
@@ -11,30 +13,26 @@ type RewindProps = {
 
 const Rewind = ({ data }: RewindProps) => {
   const [clicked, setClicked] = useState(false)
-  const [currPage, setCurrPage] = useState(0)
+  const [currPage, setCurrPage] = useState(2)
 
   const handleClick = () => {
     setClicked(true)
 
     setTimeout(() => {
-      setCurrPage(prev => prev + 1)
+      // setCurrPage(prev => prev + 1)
     }, 800)
   }
 
+  if (!data) return <Navigate to='/' />
+
   return (
     <div className='rewind-page' onClick={handleClick}>
-      {currPage === 0 && (
-        <NumDeliveries numOrders={1000} numChains={100} clicked={clicked} />
-      )}
+      {currPage === 0 && <NumDeliveries recapData={data} clicked={clicked} />}
       {currPage === 1 && (
-        <NumStoresAndItems
-          numOrders={1000}
-          numChains={100}
-          numItems={1400}
-          avgNumItemsPerDelivery={1.43}
-        />
+        <NumStoresAndItems recapData={data} clicked={clicked} />
       )}
-      {currPage >= 2 && <Share recapData={data} />}
+      {currPage === 2 && <TopStores recapData={data} clicked={clicked} />}
+      {currPage >= 3 && <Share recapData={data} />}
     </div>
   )
 }

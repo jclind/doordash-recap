@@ -11,17 +11,38 @@ import ShareCard from './pages/ShareCard'
 
 Modal.setAppElement('#root')
 
+const LS_DOORDASH_RECAP_DATA = 'LS_DOORDASH_RECAP_DATA'
+
 const App = () => {
   const [dataDD, setDataDD] = useState<DoorDashOrderType[] | null>(null)
-  const [processedData, setProcessedData] = useState<RewindData | null>(null)
+  const [processedData, setProcessedData] = useState<RewindData | null>(() => {
+    const recapDataLS: string | null = localStorage.getItem(
+      LS_DOORDASH_RECAP_DATA
+    )
+
+    const parsedRecapData = recapDataLS ? JSON.parse(recapDataLS) : null
+    return parsedRecapData
+  })
   // const { user, loading } = useAuthStateChanged()
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const recapDataLS: string | null = localStorage.getItem(
+      LS_DOORDASH_RECAP_DATA
+    )
+
+    const parsedRecapData = recapDataLS ? JSON.parse(recapDataLS) : null
+    if (parsedRecapData) {
+      setProcessedData(parsedRecapData)
+    }
+  }, [])
 
   useEffect(() => {
     if (dataDD) {
       const res = processCSVData(dataDD)
       setProcessedData(res)
       console.log(res.topChainStores, res.topIndividualStores)
+      localStorage.setItem(LS_DOORDASH_RECAP_DATA, JSON.stringify(res))
       navigate('/rewind')
     }
   }, [dataDD])

@@ -1,0 +1,168 @@
+@import '../../helpers.scss';
+
+$base-delay: 0.8s;
+
+.top-stores-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: $darker-background;
+
+  .initial-page {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: inherit;
+
+    animation: removeElement 0.01s linear forwards $base-delay + 3.5s;
+
+    .initial-title {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-10%);
+      line-height: 5rem;
+      opacity: 0;
+      animation: fadeInUpInitialTitle 0.8s ease-out forwards $base-delay;
+
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 3rem;
+
+      span.year {
+        color: $secondary;
+        font-weight: 800;
+      }
+
+      .dot {
+        opacity: 0;
+        animation: fadeIn 0.1s linear forwards;
+      }
+
+      .dot:nth-child(2) {
+        animation-delay: $base-delay + 0.7s;
+      }
+
+      .dot:nth-child(3) {
+        animation-delay: $base-delay + 1.2s;
+      }
+      .dot:nth-child(4) {
+        animation-delay: $base-delay + 1.7s;
+      }
+    }
+  }
+  .reveal {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw; // Set the width to full viewport width
+    height: 100vh; // Set the height to full viewport height
+    overflow: hidden;
+    .b2,
+    .b1 {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .b1 {
+      transform: translate(50%, 50%);
+      background: linear-gradient(
+        to bottom right,
+        rgba(0, 0, 0, 0) 50%,
+        $secondary 50%
+      );
+      animation: slideInDiagonalBottomRight 1.2s ease-in-out forwards
+        $base-delay + 3s;
+    }
+    .b2 {
+      transform: translate(-50%, -50%);
+      background: linear-gradient(
+        to top left,
+        rgba(0, 0, 0, 0) 50%,
+        $secondary 50%
+      );
+      animation: slideInDiagonalTopLeft 1.2s ease-in-out forwards $base-delay +
+        3s;
+    }
+  }
+
+  .main-page {
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+  }
+}
+@keyframes slideInDiagonalBottomRight {
+  0% {
+    transform: translate(50%, 50%);
+  }
+  20% {
+    transform: translate(0%, 0%);
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  70% {
+    transform: translate(0%, 0%);
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  100% {
+    transform: translate(50%, 50%);
+  }
+}
+@keyframes slideInDiagonalTopLeft {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  20% {
+    transform: translate(0%, 0%);
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  70% {
+    transform: translate(0%, 0%);
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Fade in to full opacity */
+    transform: translateY(0); /* Move up to the original position */
+  }
+}
+@keyframes fadeInUpInitialTitle {
+  to {
+    opacity: 1; /* Fade in to full opacity */
+    transform: translateY(-50%); /* Move up to the original position */
+  }
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes initialPageExit {
+  to {
+    transform: translateX(-150%);
+  }
+}
+
+@keyframes removeElement {
+  to {
+    display: none;
+    z-index: -1000;
+  }
+}

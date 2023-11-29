@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './NumStoresAndItems.scss'
+import { RewindData } from '../../types'
 
 type NumStoresAndItemsProps = {
-  numOrders: number
-  numChains: number
-  numItems: number
-  avgNumItemsPerDelivery: number
+  recapData: RewindData
+  clicked: boolean
 }
 
-const NumStoresAndItems = ({
-  numOrders,
-  numChains,
-  numItems,
-  avgNumItemsPerDelivery,
-}: NumStoresAndItemsProps) => {
+const NumStoresAndItems = ({ recapData, clicked }: NumStoresAndItemsProps) => {
+  const {
+    numOrders,
+    totalItemsDelivered: numItems,
+    avgNumItemsPerDelivery,
+  } = recapData
+
   return (
     <div className='num-stores-and-items-page'>
       <div className='background'></div>

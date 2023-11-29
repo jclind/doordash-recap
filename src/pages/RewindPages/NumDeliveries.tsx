@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './NumDeliveries.scss'
 
-import { FaStar } from 'react-icons/fa'
+import { RewindData } from '../../types'
 
 type NumDeliveriesProps = {
-  numOrders: number
-  numChains: number
+  recapData: RewindData
   clicked: boolean
 }
 
-const NumDeliveries = ({
-  numOrders,
-  numChains,
-  clicked,
-}: NumDeliveriesProps) => {
+const NumDeliveries = ({ recapData, clicked }: NumDeliveriesProps) => {
+  const { numOrders, numChainStores } = recapData
+
   return (
     <div className='num-deliveries-page'>
       {clicked && <div className='cover'></div>}
@@ -26,7 +23,7 @@ const NumDeliveries = ({
           <span className='orders-label'>orders</span>
         </div>
         <div className='text'>
-          From <span>{numChains}</span> different stores.
+          From <span>{numChainStores}</span> different stores.
         </div>
       </div>
       <div className='circle-1 circle' />
