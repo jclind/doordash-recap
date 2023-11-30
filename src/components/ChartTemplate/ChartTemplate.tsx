@@ -49,7 +49,7 @@ const calculateEvenlySpacedValues = (min: number, max: number): number[] => {
     result.push(currVal)
   }
 
-  return result
+  return result.reverse()
 
   // const range = max - min
   // const stepSize = range / 6 // You can adjust the division factor for more or fewer values
@@ -68,7 +68,6 @@ const calculateEvenlySpacedValues = (min: number, max: number): number[] => {
 type ChartTemplateProps = {
   chartMax: number
   chartMin?: number
-  yAxisIncrement: number
   data: ChartTemplateDataType
   tooltipText: string
   chartTitle: string
@@ -77,22 +76,22 @@ type ChartTemplateProps = {
 const ChartTemplate = ({
   chartMax,
   chartMin = 0,
-  yAxisIncrement,
   data,
   tooltipText,
   chartTitle,
 }: ChartTemplateProps) => {
-  console.log(calculateEvenlySpacedValues(0, 0.5))
-
   const yAxisPoints = () => {
+    const spacedValues = calculateEvenlySpacedValues(chartMin, chartMax)
+    console.log(spacedValues)
     const points: JSX.Element[] = []
-    for (let i = chartMax; i >= chartMin; i -= yAxisIncrement) {
+
+    spacedValues.forEach(val => {
       points.push(
-        <div key={i} className='point'>
-          {i} -
+        <div key={val} className='point'>
+          {val} -
         </div>
       )
-    }
+    })
     return points
   }
 

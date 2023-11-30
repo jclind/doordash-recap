@@ -32,7 +32,6 @@ const DayChart = ({ deliveriesPerDay }: DayChartProps) => {
     <ChartTemplate
       chartMax={chartMax}
       chartTitle={chartTitle}
-      yAxisIncrement={0.5}
       data={chartData}
       tooltipText='Daily Average'
     />

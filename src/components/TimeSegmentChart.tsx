@@ -1,14 +1,18 @@
 import React from 'react'
 import { ChartTemplateDataType, TimeSegments } from '../types'
 import ChartTemplate from './ChartTemplate/ChartTemplate'
+import { findHourSegmentWithMostDeliveries } from '../util/dataTrends'
 
 type TimeSegmentChartProps = {
   timeSegments: TimeSegments
 }
 
 const TimeSegmentChart = ({ timeSegments }: TimeSegmentChartProps) => {
-  const chartMax = 100
   const chartTitle = 'Total Deliveries Per Time Segment'
+
+  const chartMaxName =
+    findHourSegmentWithMostDeliveries(timeSegments) ?? '16-20'
+  const chartMax = timeSegments[chartMaxName].numDeliveries
 
   const chartData: ChartTemplateDataType = {}
 
@@ -22,7 +26,6 @@ const TimeSegmentChart = ({ timeSegments }: TimeSegmentChartProps) => {
       chartMax={chartMax}
       chartTitle={chartTitle}
       data={chartData}
-      yAxisIncrement={5}
       tooltipText='Total Deliveries'
     />
   )

@@ -130,7 +130,7 @@ export const findDayWithMostDeliveries = (
 
   return dayWithMostDeliveries
 }
-const findHourSegmentWithMostDeliveries = (
+export const findHourSegmentWithMostDeliveries = (
   timeSegments: TimeSegments
 ): HourSegments | null => {
   let maxDeliveries = 0
