@@ -1,6 +1,7 @@
 import React from 'react'
 import { DayArr, DeliveriesPerDay } from '../types'
 import { findDayWithMostDeliveries } from '../util/dataTrends'
+import { Tooltip } from 'react-tooltip'
 import './DayChart.scss'
 
 const getDayAverage = (num: number) => {
@@ -47,18 +48,21 @@ const DayChart = ({ deliveriesPerDay }: DayChartProps) => {
         {Object.keys(deliveriesPerDay).map(day => {
           const numDeliveries =
             deliveriesPerDay[day as keyof DeliveriesPerDay].numDeliveries
-          const heightPercentage =
-            (getDayAverage(numDeliveries) / chartMax) * 100
+          const averageDeliveries = getDayAverage(numDeliveries)
+          const heightPercentage = (averageDeliveries / chartMax) * 100
           console.log(heightPercentage)
           return (
             <div className='single-line' key={day}>
               <div className='week-day'>{day}</div>
 
               <div className='line-container'>
-                <div
+                <a
+                  data-tooltip-id='line-tooltip'
+                  data-tooltip-content={`Daily Average: ${averageDeliveries}`}
                   className='line'
                   style={{ height: `${heightPercentage}%` }}
-                ></div>
+                ></a>
+                <Tooltip id='line-tooltip' />
               </div>
             </div>
           )
