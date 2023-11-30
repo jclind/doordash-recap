@@ -1,5 +1,5 @@
 import React from 'react'
-import { DayArr, DeliveriesPerDay } from '../types'
+import { DeliveriesPerDay } from '../types'
 import { findDayWithMostDeliveries } from '../util/dataTrends'
 import { Tooltip } from 'react-tooltip'
 import './DayChart.scss'
@@ -11,16 +11,6 @@ const getDayAverage = (num: number) => {
 type DayChartProps = {
   deliveriesPerDay: DeliveriesPerDay
 }
-
-const daysOfWeekShortened: string[] = [
-  'Mon',
-  'Tue',
-  'Wed',
-  'Thu',
-  'Fri',
-  'Sat',
-  'Sun',
-]
 
 const DayChart = ({ deliveriesPerDay }: DayChartProps) => {
   const maxDayName = findDayWithMostDeliveries(deliveriesPerDay) ?? 'fri'
@@ -43,6 +33,7 @@ const DayChart = ({ deliveriesPerDay }: DayChartProps) => {
 
   return (
     <div className='day-chart'>
+      <div className='chart-title'>Avg. Deliveries Per Day</div>
       <div className='y-axis'>{yAxisPoints()}</div>
       <div className='chart-content'>
         {Object.keys(deliveriesPerDay).map(day => {
@@ -68,11 +59,6 @@ const DayChart = ({ deliveriesPerDay }: DayChartProps) => {
           )
         })}
       </div>
-      {/* <div className='x-axis'>
-        {daysOfWeekShortened.map(day => (
-          <div className='day'>{day}</div>
-        ))}
-      </div> */}
     </div>
   )
 }

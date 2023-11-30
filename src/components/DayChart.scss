@@ -15,6 +15,16 @@
 
   animation: fadeInUp 0.5s ease-out forwards 0.5s;
 
+  .chart-title {
+    position: absolute;
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    top: -1rem;
+    left: 0;
+    right: 0;
+  }
+
   .y-axis {
     display: flex;
     flex-direction: column;
