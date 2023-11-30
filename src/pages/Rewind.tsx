@@ -7,6 +7,7 @@ import SingleTopStore from './RewindPages/SingleTopStore/SingleTopStore'
 import { Navigate } from 'react-router-dom'
 import TopStoresList from './RewindPages/TopStoresList/TopStoresList'
 import NumDeliveries from './RewindPages/NumDelieveries/NumDeliveries'
+import Charts from './RewindPages/Charts/Charts'
 
 type RewindProps = {
   data: RewindData | null
@@ -14,7 +15,7 @@ type RewindProps = {
 
 const Rewind = ({ data }: RewindProps) => {
   const [clicked, setClicked] = useState(false)
-  const [currPage, setCurrPage] = useState(3)
+  const [currPage, setCurrPage] = useState(4)
 
   const handleClick = () => {
     setClicked(true)
@@ -37,7 +38,8 @@ const Rewind = ({ data }: RewindProps) => {
       )}
       {currPage === 2 && <SingleTopStore recapData={data} clicked={clicked} />}
       {currPage === 3 && <TopStoresList recapData={data} clicked={clicked} />}
-      {currPage >= 4 && <Share recapData={data} />}
+      {currPage === 4 && <Charts recapData={data} clicked={clicked} />}
+      {currPage >= 5 && <Share recapData={data} />}
     </div>
   )
 }

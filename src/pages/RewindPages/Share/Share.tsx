@@ -9,7 +9,7 @@ import {
 } from 'react-icons/ai'
 
 type ShareProps = {
-  recapData: RewindData | null
+  recapData: RewindData
 }
 
 const Share = ({ recapData }: ShareProps) => {

@@ -19,11 +19,9 @@ export const processCSVData = (
   const deliveryTimes = getTimesPerDelivery(currYearOrderHistory)
   const itemsData = getItemsData(currYearOrderHistory, numOrders)
 
-  // const trends = getDataTrends(currYearOrderHistory)
+  const trends = getDataTrends(currYearOrderHistory)
 
-  // console.log(trends)
-
-  return { numOrders, ...storeData, ...deliveryTimes, ...itemsData }
+  return { numOrders, ...storeData, ...deliveryTimes, ...itemsData, ...trends }
 }
 
 const getOrdersThisYear = (orderHistory: DoorDashOrderType[]) => {

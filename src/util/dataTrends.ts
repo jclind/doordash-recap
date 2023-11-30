@@ -1,30 +1,14 @@
-import { DoorDashOrderType } from '../types'
+import {
+  DayArr,
+  DeliveriesEachMonth,
+  DeliveriesPerDay,
+  DoorDashOrderType,
+  HourSegments,
+  Months,
+  TimeSegments,
+  Trends,
+} from '../types'
 import { getDeliveryDurationMS } from './getDeliveryDurationMS'
-
-type DayArr = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun'
-type DeliveriesPerDay = {
-  [key in DayArr]: {
-    numDeliveries: number
-    totalDeliveryDuration: number
-  }
-}
-
-type HourSegments =
-  | '0-3'
-  | '3-6'
-  | '6-9'
-  | '9-12'
-  | '12-15'
-  | '15-18'
-  | '18-21'
-  | '21-0'
-
-type TimeSegments = {
-  [key in HourSegments]: {
-    numDeliveries: number
-    totalDeliveryDuration: number
-  }
-}
 
 const initialTimeSegments = {
   '0-3': { numDeliveries: 0, totalDeliveryDuration: 0 },
@@ -46,25 +30,6 @@ const initialDeliveries: DeliveriesPerDay = {
   sat: { numDeliveries: 0, totalDeliveryDuration: 0 },
   sun: { numDeliveries: 0, totalDeliveryDuration: 0 },
 }
-type Months =
-  | 'jan'
-  | 'feb'
-  | 'mar'
-  | 'apr'
-  | 'may'
-  | 'jun'
-  | 'jul'
-  | 'aug'
-  | 'sep'
-  | 'oct'
-  | 'nov'
-  | 'dec'
-type DeliveriesEachMonth = {
-  [key in Months]: {
-    numDeliveries: number
-    totalDeliveryDuration: number
-  }
-}
 
 const initialDeliveriesEachMonth: DeliveriesEachMonth = {
   jan: { numDeliveries: 0, totalDeliveryDuration: 0 },
@@ -81,7 +46,7 @@ const initialDeliveriesEachMonth: DeliveriesEachMonth = {
   dec: { numDeliveries: 0, totalDeliveryDuration: 0 },
 }
 
-export const getDataTrends = (orderHistory: DoorDashOrderType[]) => {
+export const getDataTrends = (orderHistory: DoorDashOrderType[]): Trends => {
   const deliveriesPerDay: DeliveriesPerDay = { ...initialDeliveries }
   const timeSegments: TimeSegments = { ...initialTimeSegments }
   const deliveriesEachMonth: DeliveriesEachMonth = {
@@ -133,4 +98,107 @@ const getDeliveryHourSegment = (ACTUAL_DELIVERY_TIME: string) => {
   } else {
     return '21-0'
   }
+}
+
+export const getMaxDeliveriesMonth = (
+  deliveries: DeliveriesEachMonth
+): Months | null => {
+  let maxMonth: Months | null = null
+  let maxDeliveries = -1
+
+  Object.entries(deliveries).forEach(([month, data]) => {
+    const numDeliveries = data.numDeliveries as number
+
+    if (numDeliveries > maxDeliveries) {
+      maxMonth = month as Months
+      maxDeliveries = numDeliveries
+    }
+  })
+
+  return maxMonth
+}
+
+export const findDayWithMostDeliveries = (
+  deliveries: DeliveriesPerDay
+): DayArr | null => {
+  let maxDeliveries = 0
+  let dayWithMostDeliveries: DayArr | null = null
+
+  for (const day in deliveries) {
+    if (deliveries.hasOwnProperty(day)) {
+      const numDeliveries = deliveries[day as DayArr].numDeliveries
+
+      if (numDeliveries > maxDeliveries) {
+        maxDeliveries = numDeliveries
+        dayWithMostDeliveries = day as DayArr
+      }
+    }
+  }
+
+  return dayWithMostDeliveries
+}
+const findHourSegmentWithMostDeliveries = (
+  timeSegments: TimeSegments
+): HourSegments | null => {
+  let maxDeliveries = 0
+  let hourSegmentWithMostDeliveries: HourSegments | null = null
+
+  for (const hourSegment in timeSegments) {
+    if (timeSegments.hasOwnProperty(hourSegment)) {
+      const numDeliveries =
+        timeSegments[hourSegment as HourSegments].numDeliveries
+
+      if (numDeliveries > maxDeliveries) {
+        maxDeliveries = numDeliveries
+        hourSegmentWithMostDeliveries = hourSegment as HourSegments
+      }
+    }
+  }
+
+  return hourSegmentWithMostDeliveries
+}
+
+const timeSegmentToRegularTime = (hourSegment: HourSegments): string => {
+  const [start, end] = hourSegment.split('-')
+  const startTime = start === '0' ? '12AM' : `${start}AM`
+  const endTime = end === '0' ? '12AM' : `${end}AM`
+  return `${startTime}-${endTime}`
+}
+
+const dayMapping = {
+  mon: 'Monday',
+  tue: 'Tuesday',
+  wed: 'Wednesday',
+  thu: 'Thursday',
+  fri: 'Friday',
+  sat: 'Saturday',
+  sun: 'Sunday',
+}
+const hourSegmentNames = {
+  '0-3': 'Late At Night',
+  '3-6': 'Early In The Morning',
+  '6-9': 'In The Morning',
+  '9-12': 'Late In The Morning',
+  '12-15': 'In The Afternoon',
+  '15-18': 'Late In The Afternoon',
+  '18-21': 'In The Evening',
+  '21-0': 'At Night',
+}
+
+export const createTrendString = (
+  deliveriesPerDay: DeliveriesPerDay,
+  timeSegments: TimeSegments
+): { shareStr: string; dayOfWeek: string; timeSegmentName: string } => {
+  const dayOfWeekShort: DayArr =
+    findDayWithMostDeliveries(deliveriesPerDay) ?? 'fri'
+  const dayOfWeek = dayMapping[dayOfWeekShort]
+
+  const timeSegmentNumber =
+    findHourSegmentWithMostDeliveries(timeSegments) ?? '15-18'
+  const timeSegmentName = hourSegmentNames[timeSegmentNumber]
+  const timeSegmentHours = timeSegmentToRegularTime(timeSegmentNumber)
+
+  const shareStr = `${dayOfWeek} / ${timeSegmentHours}`
+
+  return { shareStr, dayOfWeek, timeSegmentName }
 }
