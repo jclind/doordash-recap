@@ -3,6 +3,7 @@ import './Charts.scss'
 import { RewindData } from '../../../types'
 import { createTrendString } from '../../../util/dataTrends'
 import DayChart from '../../../components/DayChart'
+import TimeSegmentChart from '../../../components/TimeSegmentChart'
 
 type ChartsProps = {
   recapData: RewindData
@@ -11,8 +12,6 @@ type ChartsProps = {
 
 const Charts = ({ recapData, clicked }: ChartsProps) => {
   const { deliveriesEachMonth, deliveriesPerDay, timeSegments } = recapData
-
-  console.log(deliveriesPerDay)
 
   const { dayOfWeek, timeSegmentName } = createTrendString(
     deliveriesPerDay,
@@ -30,6 +29,9 @@ const Charts = ({ recapData, clicked }: ChartsProps) => {
         </div>
         <div className='month-chart-container'>
           <DayChart deliveriesPerDay={deliveriesPerDay} />
+        </div>
+        <div className='time-segment-chart-container'>
+          <TimeSegmentChart timeSegments={timeSegments} />
         </div>
       </div>
     </div>

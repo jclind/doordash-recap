@@ -11,14 +11,12 @@ import {
 import { getDeliveryDurationMS } from './getDeliveryDurationMS'
 
 const initialTimeSegments = {
-  '0-3': { numDeliveries: 0, totalDeliveryDuration: 0 },
-  '3-6': { numDeliveries: 0, totalDeliveryDuration: 0 },
-  '6-9': { numDeliveries: 0, totalDeliveryDuration: 0 },
-  '9-12': { numDeliveries: 0, totalDeliveryDuration: 0 },
-  '12-15': { numDeliveries: 0, totalDeliveryDuration: 0 },
-  '15-18': { numDeliveries: 0, totalDeliveryDuration: 0 },
-  '18-21': { numDeliveries: 0, totalDeliveryDuration: 0 },
-  '21-0': { numDeliveries: 0, totalDeliveryDuration: 0 },
+  '0-4': { numDeliveries: 0, totalDeliveryDuration: 0 },
+  '4-8': { numDeliveries: 0, totalDeliveryDuration: 0 },
+  '8-12': { numDeliveries: 0, totalDeliveryDuration: 0 },
+  '12-16': { numDeliveries: 0, totalDeliveryDuration: 0 },
+  '16-20': { numDeliveries: 0, totalDeliveryDuration: 0 },
+  '20-0': { numDeliveries: 0, totalDeliveryDuration: 0 },
 }
 
 const initialDeliveries: DeliveriesPerDay = {
@@ -81,23 +79,18 @@ export const getDataTrends = (orderHistory: DoorDashOrderType[]): Trends => {
 const getDeliveryHourSegment = (ACTUAL_DELIVERY_TIME: string) => {
   const hour = new Date(ACTUAL_DELIVERY_TIME).getHours()
 
-  if (hour >= 0 && hour < 3) {
-    return '0-3'
-  } else if (hour >= 3 && hour < 6) {
-    return '3-6'
-  } else if (hour >= 6 && hour < 9) {
-    return '6-9'
-  } else if (hour >= 9 && hour < 12) {
-    return '9-12'
-  } else if (hour >= 12 && hour < 15) {
-    return '12-15'
-  } else if (hour >= 15 && hour < 18) {
-    return '15-18'
-  } else if (hour >= 18 && hour < 21) {
-    return '18-21'
-  } else {
-    return '21-0'
+  if (hour >= 0 && hour < 4) {
+    return '0-4'
+  } else if (hour >= 4 && hour < 8) {
+    return '4-8'
+  } else if (hour >= 8 && hour < 12) {
+    return '8-12'
+  } else if (hour >= 12 && hour < 16) {
+    return '12-16'
+  } else if (hour >= 16 && hour < 20) {
+    return '16-20'
   }
+  return '20-0'
 }
 
 export const getMaxDeliveriesMonth = (
@@ -175,14 +168,12 @@ const dayMapping = {
   sun: 'Sunday',
 }
 const hourSegmentNames = {
-  '0-3': 'Late At Night',
-  '3-6': 'Early In The Morning',
-  '6-9': 'In The Morning',
-  '9-12': 'Late In The Morning',
-  '12-15': 'In The Afternoon',
-  '15-18': 'Late In The Afternoon',
-  '18-21': 'In The Evening',
-  '21-0': 'At Night',
+  '0-4': 'Late At Night',
+  '4-8': 'Early In The Morning',
+  '8-12': 'In The Morning',
+  '12-16': 'In The Afternoon',
+  '16-20': 'In The Evening',
+  '20-0': 'At Night',
 }
 
 export const createTrendString = (
@@ -194,7 +185,7 @@ export const createTrendString = (
   const dayOfWeek = dayMapping[dayOfWeekShort]
 
   const timeSegmentNumber =
-    findHourSegmentWithMostDeliveries(timeSegments) ?? '15-18'
+    findHourSegmentWithMostDeliveries(timeSegments) ?? '16-20'
   const timeSegmentName = hourSegmentNames[timeSegmentNumber]
   const timeSegmentHours = timeSegmentToRegularTime(timeSegmentNumber)
 

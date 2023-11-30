@@ -40,15 +40,7 @@ export type DeliveriesPerDay = {
   }
 }
 
-export type HourSegments =
-  | '0-3'
-  | '3-6'
-  | '6-9'
-  | '9-12'
-  | '12-15'
-  | '15-18'
-  | '18-21'
-  | '21-0'
+export type HourSegments = '0-4' | '4-8' | '8-12' | '12-16' | '16-20' | '20-0'
 
 export type TimeSegments = {
   [key in HourSegments]: {
@@ -91,3 +83,10 @@ export type RewindData =
       Trends
 
 export type CopyLinkStatus = 'default' | 'loading' | 'copied'
+
+export type ChartTemplateDataType = {
+  [key: string]: {
+    value: number
+    label: string
+  }
+}
