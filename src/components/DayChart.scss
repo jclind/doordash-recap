@@ -3,12 +3,17 @@
 .day-chart {
   position: relative;
   display: flex;
-  height: 300px;
-  width: 300px;
-  background: $secondary-background;
+  height: 250px;
+  width: 310px;
+  // background: $secondary-background;
   // padding: 0.5rem;
   padding-bottom: 1rem;
   box-sizing: border-box;
+
+  opacity: 0;
+  transform: translateY(10%);
+
+  animation: fadeInUp 0.5s ease-out forwards 0.5s;
 
   .y-axis {
     display: flex;
@@ -19,30 +24,43 @@
     font-size: 0.7rem;
     font-weight: 700;
     text-align: end;
-    width: 3ch;
+    width: 4ch;
+    border-right: 1px solid $primary;
+
+    .point {
+      display: flex;
+      height: 6px;
+      justify-content: flex-end;
+      text-wrap: nowrap;
+    }
   }
   .chart-content {
     display: flex;
     justify-content: space-between;
     width: 100%;
     height: 100%;
+
     .single-line {
       display: flex;
       flex-direction: column-reverse;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       gap: 0.5rem;
       width: calc(100% / 7);
       height: 100%;
       .week-day {
         height: 1rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: $secondary-text;
       }
       .line-container {
         display: flex;
         justify-content: flex-end;
         align-items: flex-end;
-        height: 90%;
+        height: 0%;
         width: 100%;
+        animation: expandLine 1s ease-out forwards 1s;
         .line {
           background: $tertiary;
           width: 20px;
@@ -52,5 +70,17 @@
         }
       }
     }
+  }
+}
+
+@keyframes expandLine {
+  to {
+    height: 90%;
+  }
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -34,7 +34,7 @@ const DayChart = ({ deliveriesPerDay }: DayChartProps) => {
     for (let i = chartMax; i >= chartMin; i -= 0.5) {
       points.push(
         <div key={i} className='point'>
-          {i}
+          {i} -
         </div>
       )
     }
@@ -56,12 +56,12 @@ const DayChart = ({ deliveriesPerDay }: DayChartProps) => {
               <div className='week-day'>{day}</div>
 
               <div className='line-container'>
-                <a
+                <div
                   data-tooltip-id='line-tooltip'
                   data-tooltip-content={`Daily Average: ${averageDeliveries}`}
                   className='line'
                   style={{ height: `${heightPercentage}%` }}
-                ></a>
+                ></div>
                 <Tooltip id='line-tooltip' />
               </div>
             </div>
