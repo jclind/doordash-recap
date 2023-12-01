@@ -168,8 +168,8 @@ const dayMapping = {
   sun: 'Sunday',
 }
 const hourSegmentNames = {
-  '0-4': 'Late At Night',
-  '4-8': 'Early In The Morning',
+  '0-4': 'Late Night',
+  '4-8': 'Early Morning',
   '8-12': 'In The Morning',
   '12-16': 'In The Afternoon',
   '16-20': 'In The Evening',

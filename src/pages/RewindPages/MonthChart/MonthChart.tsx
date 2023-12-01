@@ -65,7 +65,7 @@ const MonthChart = ({ recapData, clicked }: MonthChartProps) => {
           <div className='x-axis'>
             {xAxisPoints.map(value => {
               return (
-                <div className='point-container'>
+                <div className='point-container' key={value}>
                   <div className='tick'></div>
                   <div className='point'>{value}</div>
                 </div>

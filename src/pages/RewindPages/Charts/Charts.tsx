@@ -22,16 +22,16 @@ const Charts = ({ recapData, clicked }: ChartsProps) => {
     <div className={`charts-page ${clicked ? 'clicked' : ''}`}>
       <div className='content-container'>
         <div className='title'>
-          Your favorite time to dash is{' '}
+          Your favorite time to dash is <br />
           <span>
             {timeSegmentName} on {dayOfWeek}s.
           </span>
         </div>
         <div className='charts-container'>
-          <div className='month-chart-container'>
+          <div className='month-chart-container chart-item'>
             <DayChart deliveriesPerDay={deliveriesPerDay} />
           </div>
-          <div className='time-segment-chart-container'>
+          <div className='time-segment-chart-container chart-item'>
             <TimeSegmentChart timeSegments={timeSegments} />
           </div>
         </div>
