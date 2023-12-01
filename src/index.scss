@@ -104,6 +104,36 @@ button.action-btn,
   overflow-x: hidden;
 }
 
+.legal-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+  .content {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 90%;
+    flex-grow: 1;
+    margin: 0 auto;
+    padding: 4rem 0;
+    section {
+      h2 {
+        padding-top: 3rem;
+      }
+      p {
+        color: $secondary-text;
+      }
+      a {
+        color: $secondary;
+      }
+    }
+  }
+}
+
 .loading-screen {
   display: flex;
   flex-direction: column;
