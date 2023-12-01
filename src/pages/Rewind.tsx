@@ -16,7 +16,7 @@ type RewindProps = {
 
 const Rewind = ({ data }: RewindProps) => {
   const [clicked, setClicked] = useState(false)
-  const [currPage, setCurrPage] = useState(1)
+  const [currPage, setCurrPage] = useState(2)
 
   const handleClick = () => {
     if (!clicked) {

@@ -48,7 +48,7 @@ const SingleTopStore = ({ recapData, clicked }: SingleTopStoresProps) => {
           Where you delivered <span>{topStore.totalTimesDelivered} times</span>
         </div>
       </div>
-      <div className='background-color'></div>
+      {clicked && <div className='background-color'></div>}
     </div>
   )
 }
