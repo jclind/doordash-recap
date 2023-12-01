@@ -1,5 +1,7 @@
 @import '../../../helpers.scss';
 
+$base-delay: 0.5s;
+
 .charts-page {
   display: flex;
   flex-direction: column;
@@ -11,7 +13,6 @@
   .content-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 100%;
     width: 90%;
@@ -20,8 +21,15 @@
       font-weight: 700;
       color: $tertiary-text;
       font-size: 1.5rem;
+
       text-align: center;
-      margin-bottom: 3rem;
+      margin-top: 3rem;
+      margin-bottom: 3.5rem;
+
+      opacity: 0;
+      transform: translateY(100%);
+
+      animation: fadeInUp 0.8s ease-out forwards $base-delay;
       span {
         text-transform: uppercase;
         font-weight: 900;
@@ -29,9 +37,21 @@
       }
     }
     .charts-container {
+      flex: 1;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      padding-bottom: 1rem;
+      max-height: 500px;
+
       gap: 2rem;
     }
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
