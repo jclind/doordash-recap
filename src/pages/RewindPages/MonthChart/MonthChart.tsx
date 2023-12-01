@@ -30,7 +30,7 @@ const MonthChart = ({ recapData, clicked }: MonthChartProps) => {
   const tooltipText = 'Total Deliveries'
 
   return (
-    <div className='month-chart-page'>
+    <div className={`month-chart-page ${clicked ? 'clicked' : ''}`}>
       <div className='content-container'>
         <div className='title'>
           Your Top Dashing Month Was <br />

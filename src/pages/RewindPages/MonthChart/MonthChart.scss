@@ -1,8 +1,11 @@
 @import '../../../helpers.scss';
 
+$base-delay: 0.5s;
+
 .month-chart-page {
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 100%;
   width: 100%;
 
@@ -14,14 +17,25 @@
     width: 90%;
     margin: 2.5rem 0;
     gap: 2.5rem;
+    max-width: 600px;
+
+    @media screen and (min-width: 800px) {
+      margin-top: 4rem;
+      gap: 4rem;
+      max-height: 700px;
+    }
     .title {
       font-size: 1.5rem;
       text-align: center;
       font-weight: 700;
+      opacity: 0;
+      transform: translateY(100%);
+
+      animation: fadeInUp 0.8s ease-out forwards $base-delay;
       span {
         font-weight: 900;
         text-transform: uppercase;
-        color: $secondary;
+        color: $yellow;
         font-size: 2.5rem;
       }
     }
@@ -33,6 +47,9 @@
       align-items: flex-end;
       width: 95%;
       margin-top: 0.5rem;
+      opacity: 0;
+      transform: translateY(10%);
+      animation: fadeInUp 0.5s ease-out forwards 1.1s;
 
       .chart-title {
         position: absolute;
@@ -42,6 +59,7 @@
         top: -1.25rem;
         left: 0;
         right: 0;
+        color: $tertiary-text;
       }
 
       .content {
@@ -64,8 +82,9 @@
           .line-container {
             display: flex;
             align-items: flex-end;
-            width: 100%;
+            width: 0;
             height: 100%;
+            animation: expandLine 1s ease-out forwards 1.6s;
             .line {
               background: $tertiary;
               width: 100%;
@@ -121,10 +140,58 @@
       font-weight: 700;
       text-transform: capitalize;
       line-height: 1.25rem;
+      opacity: 0;
+      transform: translateY(100%);
+
+      animation: fadeInUp 0.8s ease-out forwards $base-delay + 1s;
       span {
         font-weight: 800;
-        color: $tertiary;
+        color: $yellow;
       }
     }
+  }
+}
+
+.month-chart-page.clicked {
+  .content-container {
+    .title {
+      opacity: 1;
+      transform: translate(0);
+      animation: fadeOutUpText 0.5s ease-in forwards 0.2s;
+    }
+    .month-chart {
+      opacity: 1;
+      transform: translate(0);
+      animation: fadeOutUpElement 0.5s ease-in forwards 0.4s;
+    }
+    .stat {
+      opacity: 1;
+      transform: translate(0);
+      animation: fadeOutUpText 0.5s ease-in forwards 0.6s;
+    }
+  }
+}
+
+@keyframes fadeOutUpText {
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+@keyframes fadeOutUpElement {
+  to {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes expandLine {
+  to {
+    width: 100%;
   }
 }
