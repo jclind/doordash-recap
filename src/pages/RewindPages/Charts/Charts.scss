@@ -48,7 +48,38 @@ $base-delay: 0.5s;
     }
   }
 }
+.charts-page.clicked {
+  .content-container {
+    .title {
+      opacity: 0;
+      transform: translateY(0);
+      animation: fadeOutUpText 0.5s ease-in forwards 0.2s;
+    }
+    .month-chart-container {
+      opacity: 0;
+      transform: translateY(0);
+      animation: fadeOutUpElement 0.5s ease-in forwards 0.4s;
+    }
+    .time-segment-chart-container {
+      opacity: 0;
+      transform: translateY(0);
+      animation: fadeOutUpElement 0.5s ease-in forwards 0.6s;
+    }
+  }
+}
 
+@keyframes fadeOutUpText {
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+@keyframes fadeOutUpElement {
+  to {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+}
 @keyframes fadeInUp {
   to {
     opacity: 1;

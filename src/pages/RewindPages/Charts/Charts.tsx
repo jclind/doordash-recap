@@ -19,7 +19,7 @@ const Charts = ({ recapData, clicked }: ChartsProps) => {
   )
 
   return (
-    <div className='charts-page'>
+    <div className={`charts-page ${clicked ? 'clicked' : ''}`}>
       <div className='content-container'>
         <div className='title'>
           Your favorite time to dash is{' '}

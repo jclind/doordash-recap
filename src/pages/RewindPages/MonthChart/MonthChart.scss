@@ -84,7 +84,7 @@ $base-delay: 0.5s;
             align-items: flex-end;
             width: 0;
             height: 100%;
-            animation: expandLine 1s ease-out forwards 1.6s;
+            animation: expandLineWidth 1s ease-out forwards 1.6s;
             .line {
               background: $tertiary;
               width: 100%;
@@ -170,28 +170,27 @@ $base-delay: 0.5s;
       animation: fadeOutUpText 0.5s ease-in forwards 0.6s;
     }
   }
-}
-
-@keyframes fadeOutUpText {
-  to {
-    opacity: 0;
-    transform: translateY(-100%);
+  @keyframes fadeOutUpText {
+    to {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
   }
-}
-@keyframes fadeOutUpElement {
-  to {
-    opacity: 0;
-    transform: translateY(-10%);
+  @keyframes fadeOutUpElement {
+    to {
+      opacity: 0;
+      transform: translateY(-10%);
+    }
   }
-}
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-}
-@keyframes expandLine {
-  to {
-    width: 100%;
+  @keyframes expandLineWidth {
+    to {
+      width: 100%;
+    }
   }
 }
