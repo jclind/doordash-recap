@@ -1,10 +1,12 @@
 import React from 'react'
+import Nav from '../components/Nav/Nav'
 
 const TermsOfService = () => {
   return (
     <div className='terms-of-service-page legal-page'>
       <div className='content'>
         <h1>Terms and Conditions for Dasher Recap</h1>
+        <p>Last updated: December 1, 2023</p>
 
         <section>
           <h2>1. Acceptance of Terms</h2>

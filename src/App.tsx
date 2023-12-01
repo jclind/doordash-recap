@@ -10,6 +10,7 @@ import Modal from 'react-modal'
 import ShareCard from './pages/ShareCard'
 import Privacy from './pages/Privacy'
 import TermsOfService from './pages/TermsOfService'
+import Nav from './components/Nav/Nav'
 
 Modal.setAppElement('#root')
 
@@ -53,6 +54,7 @@ const App = () => {
 
   return (
     <div className='App'>
+      <Nav />
       <Routes>
         <Route path='/' element={<Home setDataDD={setDataDD} />} />
         <Route path='rewind' element={<Rewind data={processedData} />} />

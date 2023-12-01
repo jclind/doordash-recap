@@ -1,0 +1,50 @@
+@import '../../helpers.scss';
+
+nav {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 2rem;
+  padding-top: 1rem;
+  width: 100%;
+  // max-width: 800px;
+  margin: 0 auto;
+  // background: red;
+
+  .logo-container {
+    width: 30px;
+    a {
+      display: flex;
+      align-items: flex-end;
+      text-decoration: none;
+      gap: 0.5rem;
+
+      height: 40px;
+      width: 40px;
+    }
+    .logo {
+      display: flex;
+
+      height: 30px;
+      width: 30px;
+      img {
+        object-fit: contain;
+        height: 30px;
+        width: 30px;
+      }
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      height: 27px;
+
+      font-size: 1.2rem;
+      font-weight: 900;
+      text-decoration: none;
+      color: $secondary;
+      text-wrap: nowrap;
+    }
+  }
+}
