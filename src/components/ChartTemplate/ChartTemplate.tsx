@@ -112,7 +112,7 @@ const ChartTemplate = ({
                   data-tooltip-id='line-tooltip'
                   data-tooltip-content={`${tooltipText}: ${avgDeliveries}`}
                   className='line'
-                  style={{ height: `${heightPercentage}%` }}
+                  style={{ height: `${heightPercentage || 0.5}%` }}
                 ></div>
                 <Tooltip id='line-tooltip' />
               </div>

@@ -20,7 +20,7 @@
     text-align: center;
     font-size: 0.7rem;
     font-weight: 700;
-    top: -1rem;
+    top: -1.25rem;
     left: 0;
     right: 0;
   }
@@ -35,13 +35,14 @@
     font-weight: 700;
     text-align: end;
     width: 4ch;
-    border-right: 1px solid $primary;
+    border-right: 1px solid $secondary-text;
 
     .point {
       display: flex;
       height: 6px;
       justify-content: flex-end;
-      text-wrap: nowrap;
+      white-space: nowrap;
+      color: $secondary-text;
     }
   }
   .chart-content {
@@ -80,5 +81,31 @@
         }
       }
     }
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 290px;
+    height: 210px;
+    .y-axis {
+    }
+    .chart-content {
+      .single-line {
+        .label {
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes expandLine {
+  to {
+    height: 90%;
+  }
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

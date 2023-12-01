@@ -8,7 +8,7 @@ type TimeSegmentChartProps = {
 }
 
 const TimeSegmentChart = ({ timeSegments }: TimeSegmentChartProps) => {
-  const chartTitle = 'Total Deliveries Per Time Segment'
+  const chartTitle = 'Total Deliveries Per Time Of Day'
 
   const chartMaxName =
     findHourSegmentWithMostDeliveries(timeSegments) ?? '16-20'

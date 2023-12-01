@@ -27,11 +27,13 @@ const Charts = ({ recapData, clicked }: ChartsProps) => {
             {timeSegmentName} on {dayOfWeek}s.
           </span>
         </div>
-        <div className='month-chart-container'>
-          <DayChart deliveriesPerDay={deliveriesPerDay} />
-        </div>
-        <div className='time-segment-chart-container'>
-          <TimeSegmentChart timeSegments={timeSegments} />
+        <div className='charts-container'>
+          <div className='month-chart-container'>
+            <DayChart deliveriesPerDay={deliveriesPerDay} />
+          </div>
+          <div className='time-segment-chart-container'>
+            <TimeSegmentChart timeSegments={timeSegments} />
+          </div>
         </div>
       </div>
     </div>
