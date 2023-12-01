@@ -113,6 +113,7 @@ const ChartTemplate = ({
                   data-tooltip-content={`${tooltipText}: ${avgDeliveries}`}
                   className='line'
                   style={{ height: `${heightPercentage || 0.5}%` }}
+                  onClick={e => e.stopPropagation()}
                 ></div>
                 <Tooltip id='line-tooltip' />
               </div>
