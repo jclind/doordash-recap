@@ -11,7 +11,7 @@ type ChartsProps = {
 }
 
 const Charts = ({ recapData, clicked }: ChartsProps) => {
-  const { deliveriesEachMonth, deliveriesPerDay, timeSegments } = recapData
+  const { deliveriesPerDay, timeSegments } = recapData
 
   const { dayOfWeek, timeSegmentName } = createTrendString(
     deliveriesPerDay,

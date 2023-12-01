@@ -16,17 +16,19 @@ type RewindProps = {
 
 const Rewind = ({ data }: RewindProps) => {
   const [clicked, setClicked] = useState(false)
-  const [currPage, setCurrPage] = useState(4)
+  const [currPage, setCurrPage] = useState(1)
 
   const handleClick = () => {
-    setClicked(true)
+    if (!clicked) {
+      setClicked(true)
 
-    const timeoutMS = currPage === 3 ? 1300 : 1000
+      const timeoutMS = currPage === 1 ? 2000 : currPage === 3 ? 1300 : 1000
 
-    setTimeout(() => {
-      setCurrPage(prev => prev + 1)
-      setClicked(false)
-    }, timeoutMS)
+      setTimeout(() => {
+        setCurrPage(prev => prev + 1)
+        setClicked(false)
+      }, timeoutMS)
+    }
   }
 
   if (!data) return <Navigate to='/' />

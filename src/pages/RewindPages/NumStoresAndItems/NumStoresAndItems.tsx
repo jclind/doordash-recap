@@ -15,20 +15,14 @@ const NumStoresAndItems = ({ recapData, clicked }: NumStoresAndItemsProps) => {
   } = recapData
 
   return (
-    <div className='num-stores-and-items-page'>
+    <div className={`num-stores-and-items-page ${clicked ? 'clicked' : ''}`}>
+      {clicked && (
+        <>
+          <div className='clicked-page-transition'></div>
+          <div className='cover-background'></div>
+        </>
+      )}
       <div className='background'></div>
-      <div className='cover'>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
       <div className='inner-container'>
         <div className='card-container card-container-1'>
           <div className='card card-top'>
