@@ -3,6 +3,7 @@ import CollectCSV from '../components/CollectCSV'
 import { DoorDashOrderType } from '../types'
 import './Home.scss'
 import { Link } from 'react-router-dom'
+import { tutorialData } from '../assets/data/tutorialData'
 
 type HomeProps = {
   setDataDD: (data: DoorDashOrderType[] | null) => void
@@ -26,7 +27,10 @@ const Home = () => {
             <Link to='/tutorial' className='primary tutorial'>
               How To Get Your Data
             </Link>
-            <Link to='/upload' className='primary upload-data'>
+            <Link
+              to={`/tutorial?page=${tutorialData.length}`}
+              className='primary upload-data'
+            >
               Upload Data
             </Link>
           </div>
