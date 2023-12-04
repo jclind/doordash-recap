@@ -41,7 +41,14 @@
         gap: 2rem;
         width: 100%;
       }
-      button.primary {
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $border-radius;
+        text-decoration: none;
+      }
+      .primary {
         outline: none;
         border: 1px solid $primary;
         background: none;
@@ -57,7 +64,7 @@
         }
       }
 
-      button.example {
+      .example {
         color: $tertiary-text;
         text-decoration: underline;
         text-underline-offset: 0.15rem;
@@ -87,7 +94,7 @@
           align-items: center;
           justify-content: center;
           gap: 1rem;
-          button {
+          a {
             width: 90%;
             max-width: 300px;
           }

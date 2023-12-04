@@ -1,1 +1,224 @@
-@import '../helpers.scss';
+@import '../../helpers.scss';
+
+.tutorial-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  margin-top: 5rem;
+  width: 100%;
+  .steps-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 3rem;
+
+    .step-num {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.25rem;
+      .num {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        box-sizing: border-box;
+      }
+      .name {
+        position: absolute;
+        bottom: -1.25rem;
+        font-size: 0.8rem;
+        color: $secondary-text;
+        white-space: nowrap;
+        text-wrap: none;
+        width: fit-content;
+        font-weight: 700;
+      }
+      .line {
+        width: 4rem;
+        height: 2px;
+        background: $secondary;
+      }
+    }
+    .step-num.completed {
+      .num {
+        background: $secondary;
+      }
+      .name {
+        color: $secondary;
+      }
+    }
+    .step-num.current {
+      .num {
+        border: 2px solid $secondary;
+      }
+      .name {
+        color: $primary;
+      }
+    }
+    .step-num.todo {
+      .num {
+        color: $tertiary-text;
+        border: 2px solid $tertiary-text;
+      }
+      .name {
+        color: $tertiary-text;
+      }
+      .line {
+        background: $tertiary-text;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      .step-num {
+        .num {
+          height: 12px;
+          width: 12px;
+        }
+        .name {
+          font-size: 0.65rem;
+        }
+        .line {
+          width: 3rem;
+        }
+      }
+    }
+  }
+  .content {
+    height: 100%;
+    .img-container-outer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      background: $slightly-darker-background;
+      padding: 1rem;
+      border-radius: $border-radius;
+      box-sizing: border-box;
+      margin: 0 auto;
+      max-width: 600px;
+      .step-img-container {
+        width: 275px;
+        height: calc(275px * (4 / 3));
+        overflow: hidden;
+        border-radius: $border-radius;
+
+        img {
+          object-fit: contain;
+          height: 100%;
+          width: 100%;
+        }
+
+        .upload-img {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+          height: 100%;
+          width: 100%;
+
+          .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            width: 50px;
+            background: $primary-background;
+            border-radius: 50%;
+            .icon {
+              height: 24px;
+              width: 24px;
+            }
+          }
+          .text {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+    .instructions {
+      margin: 0 auto;
+      margin-top: 2rem;
+      text-align: center;
+      font-weight: 800;
+      width: 90%;
+      max-width: 500px;
+      height: 60px;
+    }
+  }
+  .btns {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+    button,
+    label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+
+      background: none;
+      border: 1px solid $primary;
+      color: $primary;
+      padding: 0.5rem 0.75rem;
+      width: 130px;
+      border-radius: $border-radius;
+      font-weight: 700;
+    }
+
+    .file-upload-label {
+      margin-left: 2rem;
+      box-sizing: border-box;
+      background: $secondary;
+      border: none;
+      .icon {
+        height: 18px;
+        width: 18px;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    button.back {
+      color: $secondary-text;
+      border-color: $secondary-text;
+    }
+    button.next {
+      border-color: $secondary;
+      color: $secondary;
+      margin-left: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    margin-top: 5rem;
+
+    .content {
+      .img-container-outer {
+        .step-img-container {
+          width: 250px;
+          height: (250px * (4/3));
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .content {
+      .img-container-outer {
+        padding: 0.5rem 1rem;
+        .step-img-container {
+          width: 210px;
+          height: (210px * (4/3));
+        }
+      }
+    }
+  }
+}

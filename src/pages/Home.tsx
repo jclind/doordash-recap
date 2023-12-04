@@ -8,7 +8,7 @@ type HomeProps = {
   setDataDD: (data: DoorDashOrderType[] | null) => void
 }
 
-const Home = ({ setDataDD }: HomeProps) => {
+const Home = () => {
   return (
     <div className='home-page page'>
       <div className='content'>
@@ -23,14 +23,19 @@ const Home = ({ setDataDD }: HomeProps) => {
 
         <div className='options'>
           <div className='top-btns'>
-            <button className='primary tutorial'>How To Get Your Data</button>
-            <button className='primary upload-data'>Upload Data</button>
+            <Link to='/tutorial' className='primary tutorial'>
+              How To Get Your Data
+            </Link>
+            <Link to='/upload' className='primary upload-data'>
+              Upload Data
+            </Link>
           </div>
-          <button className='btn-no-styles example'>Show Me An Example</button>
+          <Link to='/rewind' className='btn-no-styles example'>
+            Show Me An Example
+          </Link>
         </div>
       </div>
 
-      {/* <CollectCSV setData={setDataDD} /> */}
       <footer>
         <section className='top'>
           <div className='text'>

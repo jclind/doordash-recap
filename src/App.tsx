@@ -11,6 +11,7 @@ import ShareCard from './pages/ShareCard'
 import Privacy from './pages/Privacy'
 import TermsOfService from './pages/TermsOfService'
 import Nav from './components/Nav/Nav'
+import Tutorial from './pages/Tutorial/Tutorial'
 
 Modal.setAppElement('#root')
 
@@ -56,7 +57,8 @@ const App = () => {
     <div className='App'>
       <Nav />
       <Routes>
-        <Route path='/' element={<Home setDataDD={setDataDD} />} />
+        <Route path='/' element={<Home />} />
+        <Route path='tutorial' element={<Tutorial setDataDD={setDataDD} />} />
         <Route path='rewind' element={<Rewind data={processedData} />} />
         <Route path='share/:recapID' element={<ShareCard />} />
         <Route path='privacy' element={<Privacy />} />
