@@ -4,12 +4,14 @@ import { LoadingScreen } from '../components/LoadingScreen'
 import NumStoresAndItems from './RewindPages/NumStoresAndItems/NumStoresAndItems'
 import Share from './RewindPages/Share/Share'
 import SingleTopStore from './RewindPages/SingleTopStore/SingleTopStore'
-import { Navigate, useLocation } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import TopStoresList from './RewindPages/TopStoresList/TopStoresList'
 import NumDeliveries from './RewindPages/NumDelieveries/NumDeliveries'
 import Charts from './RewindPages/Charts/Charts'
 import MonthChart from './RewindPages/MonthChart/MonthChart'
 import { exampleData } from '../assets/data/exampleData'
+import RecapProgress from '../components/RecapProgress/RecapProgress'
+import { AiOutlineClose } from 'react-icons/ai'
 
 type RewindProps = {
   data: RewindData | null
@@ -44,6 +46,14 @@ const Rewind = ({ data }: RewindProps) => {
 
   return (
     <div className='rewind-page' onClick={handleClick}>
+      {/* <button className='btn-no-styles close-btn' onClick={handleClick}>
+        <AiOutlineClose className='icon' />
+      </button> */}
+      <RecapProgress
+        numPages={7}
+        currPage={currPage}
+        setCurrPage={setCurrPage}
+      />
       {currPage === 0 && (
         <NumDeliveries recapData={recapData} clicked={clicked} />
       )}

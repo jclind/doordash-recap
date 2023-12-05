@@ -102,6 +102,26 @@ button.action-btn,
   overflow-y: auto;
   box-sizing: border-box;
   overflow-x: hidden;
+
+  button.close-btn {
+    z-index: 10;
+    position: absolute;
+
+    top: 0.5rem;
+    left: 0.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    width: 24px;
+    background: rgba($darker-background, 0.6);
+    border-radius: 50%;
+    .icon {
+      height: 12px;
+      width: 12px;
+    }
+  }
 }
 
 .legal-page {

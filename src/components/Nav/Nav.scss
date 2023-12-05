@@ -9,42 +9,47 @@ nav {
   padding: 0 2rem;
   padding-top: 1rem;
   width: 100%;
-  // max-width: 800px;
   margin: 0 auto;
-  // background: red;
 
-  .logo-container {
+  button.logo-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    gap: 0.5rem;
+    background: none;
+
+    height: 40px;
+    min-width: 40px;
+  }
+  img {
+    height: 30px;
     width: 30px;
-    a {
+  }
+  .title {
+    display: flex;
+    align-items: center;
+    height: 27px;
+
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-decoration: none;
+    color: $secondary;
+    text-wrap: nowrap;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding-left: 1rem;
+    button.logo-btn {
       display: flex;
-      align-items: flex-end;
+      justify-content: center;
+      align-items: center;
       text-decoration: none;
       gap: 0.5rem;
+      background: none;
 
       height: 40px;
-      width: 40px;
-    }
-    .logo {
-      display: flex;
-
-      height: 30px;
-      width: 30px;
-      img {
-        object-fit: contain;
-        height: 30px;
-        width: 30px;
-      }
-    }
-    .title {
-      display: flex;
-      align-items: center;
-      height: 27px;
-
-      font-size: 1.2rem;
-      font-weight: 900;
-      text-decoration: none;
-      color: $secondary;
-      text-wrap: nowrap;
+      min-width: 40px;
     }
   }
 }

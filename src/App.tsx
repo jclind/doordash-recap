@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useAuthStateChanged } from './hooks/useAuthStateChanged'
 import { LoadingScreen } from './components/LoadingScreen'
 import { DoorDashOrderType, RewindData } from './types'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import Home from './pages/Home'
 import Rewind from './pages/Rewind'
 import { processCSVData } from './util/processCSVData'
@@ -27,7 +27,9 @@ const App = () => {
     const parsedRecapData = recapDataLS ? JSON.parse(recapDataLS) : null
     return parsedRecapData
   })
-  // const { user, loading } = useAuthStateChanged()
+
+  const location = useLocation()
+  const currentPathname = location.pathname
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -49,13 +51,14 @@ const App = () => {
       console.log(res)
       navigate('/rewind')
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataDD])
 
   // if (loading) return <LoadingScreen />
 
   return (
     <div className='App'>
-      <Nav />
+      {currentPathname !== '/rewind' && <Nav />}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='tutorial' element={<Tutorial setDataDD={setDataDD} />} />
