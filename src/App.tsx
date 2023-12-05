@@ -4,7 +4,6 @@ import { LoadingScreen } from './components/LoadingScreen'
 import { DoorDashOrderType, RewindData } from './types'
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import Home from './pages/Home'
-import Rewind from './pages/Rewind'
 import { processCSVData } from './util/processCSVData'
 import Modal from 'react-modal'
 import ShareCard from './pages/ShareCard'
@@ -12,6 +11,7 @@ import Privacy from './pages/Privacy'
 import TermsOfService from './pages/TermsOfService'
 import Nav from './components/Nav/Nav'
 import Tutorial from './pages/Tutorial/Tutorial'
+import Recap from './pages/Recap'
 
 Modal.setAppElement('#root')
 
@@ -62,7 +62,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='tutorial' element={<Tutorial setDataDD={setDataDD} />} />
-        <Route path='rewind' element={<Rewind data={processedData} />} />
+        <Route path='rewind' element={<Recap data={processedData} />} />
         <Route path='share/:recapID' element={<ShareCard />} />
         <Route path='privacy' element={<Privacy />} />
         <Route path='terms' element={<TermsOfService />} />

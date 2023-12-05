@@ -13,11 +13,11 @@ import { exampleData } from '../assets/data/exampleData'
 import RecapProgress from '../components/RecapProgress/RecapProgress'
 import { AiOutlineClose } from 'react-icons/ai'
 
-type RewindProps = {
+type RecapProps = {
   data: RewindData | null
 }
 
-const Rewind = ({ data }: RewindProps) => {
+const Recap = ({ data }: RecapProps) => {
   const location = useLocation()
   const queryParams = new URLSearchParams(location.search)
   const useExampleDataParam = queryParams.get('useExampleData')
@@ -73,7 +73,7 @@ const Rewind = ({ data }: RewindProps) => {
   )
 }
 
-export default Rewind
+export default Recap
 
 /**
  * IDEAS FOR PAGES
