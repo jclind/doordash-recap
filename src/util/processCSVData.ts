@@ -37,11 +37,6 @@ const getOrdersThisYear = (orderHistory: DoorDashOrderType[]) => {
   return ordersThisYear
 }
 
-// \s*\(.*?\)\s*: Removes content within parentheses.
-// \s*\d+\s*-\s*: Removes a number followed by a dash.
-// \s*-\s*\d+\s*: Removes a dash followed by a number.
-// const chainStoreREGEX = /\s*\(.*?\)\s*|\s*\d+\s*-\s*|\s*-\s*\d+\s*/g
-
 const getNumUniqueAndTotalStores = (
   currYearOrderHistory: DoorDashOrderType[]
 ): StoreData => {
@@ -62,13 +57,6 @@ const getNumUniqueAndTotalStores = (
       })
     }
 
-    // // !NEED TO WORK ON STRING FILTERING
-    // let modifiedName = 'string'
-    // if (order.STORE_NAME.includes('7-Eleven')) {
-    //   modifiedName = '7-Eleven'
-    // } else {
-    //   modifiedName = order.STORE_NAME.replace(chainStoreREGEX, '')
-    // }
     const modifiedName = parseStoreName(order.STORE_NAME)
     const modifiedIndex = chainStores.findIndex(
       item => item.store === modifiedName

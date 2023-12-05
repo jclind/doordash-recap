@@ -17,7 +17,6 @@ const Tutorial = ({ setDataDD }: TutorialProps) => {
   const pageParam = queryParams.get('page')
   const page = pageParam ? parseInt(pageParam, 10) : 1
 
-  console.log(page)
   const [step, setStep] = useState<number>(page - 1)
   const lastStepIndex = tutorialData.length - 1
 

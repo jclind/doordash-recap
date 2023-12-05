@@ -37,7 +37,6 @@ const SingleTopStore = ({ recapData, clicked }: SingleTopStoresProps) => {
         <div className='background-circle'>
           <img src={jaggedCircle} alt='jagged background' />
         </div>
-        {/* <div className='store-name'>{topStore.store}</div> */}
         <div
           className='store-name'
           style={{ fontSize: calcFontSize(topStoreName) }}

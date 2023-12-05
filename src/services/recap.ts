@@ -9,7 +9,6 @@ export const getRecapData = async (
     const docRef = doc(db, 'sharedCardData', recapID)
     const docSnap = await getDoc(docRef)
     if (docSnap.exists()) {
-      // Document found, you can access its data using docSnap.data()
       const data = docSnap.data() as RewindData
       return data
     } else {
