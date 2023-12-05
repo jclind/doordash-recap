@@ -37,8 +37,7 @@ $base-delay: 0.2s;
       text-align: center;
       font-weight: 700;
       font-size: 3rem;
-      animation: fadeInUpInitialTitle 0.8s ease-out forwards $base-delay,
-        scaleText 4s linear forwards $base-delay + 1s;
+      animation: fadeInUpInitialTitle 0.8s ease-out forwards $base-delay;
 
       span.year {
         color: $secondary;
@@ -241,11 +240,6 @@ $base-delay: 0.2s;
   }
 }
 
-@keyframes scaleText {
-  to {
-    font-size: 3.1rem;
-  }
-}
 @keyframes rotate {
   from {
     transform: rotate(0deg);
