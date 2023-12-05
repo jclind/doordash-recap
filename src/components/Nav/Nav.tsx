@@ -1,7 +1,7 @@
 import React from 'react'
 import dasherRecapLogo from '../../assets/images/dasher-recap-logo.png'
 import './Nav.scss'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const Nav = () => {
   const location = useLocation()

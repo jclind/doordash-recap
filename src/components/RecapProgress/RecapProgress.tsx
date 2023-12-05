@@ -1,6 +1,5 @@
 import React from 'react'
 import './RecapProgress.scss'
-import { AiOutlineClose } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
 import dasherRecapLogo from '../../assets/images/dasher-recap-logo.png'
 

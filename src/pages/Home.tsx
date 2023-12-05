@@ -1,13 +1,7 @@
 import React from 'react'
-import CollectCSV from '../components/CollectCSV'
-import { DoorDashOrderType } from '../types'
 import './Home.scss'
 import { Link } from 'react-router-dom'
 import { tutorialData } from '../assets/data/tutorialData'
-
-type HomeProps = {
-  setDataDD: (data: DoorDashOrderType[] | null) => void
-}
 
 const Home = () => {
   return (

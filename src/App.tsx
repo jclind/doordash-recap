@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useAuthStateChanged } from './hooks/useAuthStateChanged'
-import { LoadingScreen } from './components/LoadingScreen'
 import { DoorDashOrderType, RewindData } from './types'
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import Home from './pages/Home'

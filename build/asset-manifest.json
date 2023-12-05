@@ -1,17 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.fda29fa1.css",
-    "main.js": "/static/js/main.bae6a4c5.js",
+    "main.css": "/static/css/main.d6469ebb.css",
+    "main.js": "/static/js/main.e27ad4d1.js",
     "static/js/787.6c02f1f0.chunk.js": "/static/js/787.6c02f1f0.chunk.js",
     "static/media/background-icons.png": "/static/media/background-icons.8b429d0516dba63a3ec4.png",
+    "static/media/tutorial-1.jpg": "/static/media/tutorial-1.047684f1645924917a39.jpg",
+    "static/media/tutorial-0.jpg": "/static/media/tutorial-0.453279c71e6f4768304d.jpg",
     "static/media/jagged-circle.png": "/static/media/jagged-circle.73d757bc3dc926645285.png",
+    "static/media/tutorial-3.jpg": "/static/media/tutorial-3.e6acf34590c6cbc3ba7d.jpg",
+    "static/media/tutorial-2.jpg": "/static/media/tutorial-2.a30635ed9cbad3aa9bbb.jpg",
     "index.html": "/index.html",
-    "main.fda29fa1.css.map": "/static/css/main.fda29fa1.css.map",
-    "main.bae6a4c5.js.map": "/static/js/main.bae6a4c5.js.map",
+    "main.d6469ebb.css.map": "/static/css/main.d6469ebb.css.map",
+    "main.e27ad4d1.js.map": "/static/js/main.e27ad4d1.js.map",
     "787.6c02f1f0.chunk.js.map": "/static/js/787.6c02f1f0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fda29fa1.css",
-    "static/js/main.bae6a4c5.js"
+    "static/css/main.d6469ebb.css",
+    "static/js/main.e27ad4d1.js"
   ]
 }

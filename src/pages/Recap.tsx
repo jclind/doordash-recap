@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
-import { DoorDashOrderType, RewindData } from '../types'
-import { LoadingScreen } from '../components/LoadingScreen'
+import { RewindData } from '../types'
 import NumStoresAndItems from './RewindPages/NumStoresAndItems/NumStoresAndItems'
 import Share from './RewindPages/Share/Share'
 import SingleTopStore from './RewindPages/SingleTopStore/SingleTopStore'
-import { Navigate, useLocation, useNavigate } from 'react-router-dom'
+import { Navigate, useLocation } from 'react-router-dom'
 import TopStoresList from './RewindPages/TopStoresList/TopStoresList'
 import NumDeliveries from './RewindPages/NumDelieveries/NumDeliveries'
 import Charts from './RewindPages/Charts/Charts'
 import MonthChart from './RewindPages/MonthChart/MonthChart'
 import { exampleData } from '../assets/data/exampleData'
 import RecapProgress from '../components/RecapProgress/RecapProgress'
-import { AiOutlineClose } from 'react-icons/ai'
 
 type RecapProps = {
   data: RewindData | null
