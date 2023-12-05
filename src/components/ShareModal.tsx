@@ -53,15 +53,10 @@ const ShareModal = ({
 
   const handleDownload = () => {
     if (imgURL) {
-      const downloadLink = document.createElement('a')
-      downloadLink.href = imgURL
-      const currYear = new Date().getFullYear()
-      downloadLink.download = `doordash-recap-${currYear}.png` // Set a default filename
-
-      document.body.appendChild(downloadLink)
-      downloadLink.click()
-      // Remove the link from the document
-      document.body.removeChild(downloadLink)
+      const a = document.createElement('a')
+      a.href = imgURL
+      a.download = 'captured_image.jpg'
+      a.click()
     }
   }
 

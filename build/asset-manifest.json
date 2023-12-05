@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.44e67120.css",
-    "main.js": "/static/js/main.37d4e811.js",
+    "main.css": "/static/css/main.56a2db7d.css",
+    "main.js": "/static/js/main.f9e49fb0.js",
     "static/media/background-icons.png": "/static/media/background-icons.e46b13ae8722b4aed858.png",
     "static/media/tutorial-1.jpg": "/static/media/tutorial-1.15abc73c3c6484c6ba29.jpg",
     "static/media/jagged-circle.png": "/static/media/jagged-circle.73d757bc3dc926645285.png",
@@ -9,11 +9,11 @@
     "static/media/tutorial-0.jpg": "/static/media/tutorial-0.6a89683f325fd27007b6.jpg",
     "static/media/tutorial-3.jpg": "/static/media/tutorial-3.cd93000741dc45fa64e3.jpg",
     "index.html": "/index.html",
-    "main.44e67120.css.map": "/static/css/main.44e67120.css.map",
-    "main.37d4e811.js.map": "/static/js/main.37d4e811.js.map"
+    "main.56a2db7d.css.map": "/static/css/main.56a2db7d.css.map",
+    "main.f9e49fb0.js.map": "/static/js/main.f9e49fb0.js.map"
   },
   "entrypoints": [
-    "static/css/main.44e67120.css",
-    "static/js/main.37d4e811.js"
+    "static/css/main.56a2db7d.css",
+    "static/js/main.f9e49fb0.js"
   ]
 }
