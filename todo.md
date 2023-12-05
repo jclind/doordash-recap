@@ -11,3 +11,4 @@
 - [ ] Fix Transition From Page 1 To 2
 - [ ] Add SEO / React helmet meta tags
 - [ ] Privacy page code doesn't display well on mobile
+- [ ] Update share image for better quality? and remove border radius
