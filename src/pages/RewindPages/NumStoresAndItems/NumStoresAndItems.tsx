@@ -22,6 +22,7 @@ const NumStoresAndItems = ({ recapData, clicked }: NumStoresAndItemsProps) => {
           <div className='cover-background'></div>
         </>
       )}
+      <div className='cover'></div>
       <div className='background'></div>
       <div className='inner-container'>
         <div className='card-container card-container-1'>

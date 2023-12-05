@@ -51,8 +51,6 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataDD])
 
-  // if (loading) return <LoadingScreen />
-
   return (
     <div className='App'>
       {currentPathname !== '/recap' && <Nav />}
@@ -64,8 +62,6 @@ const App = () => {
         <Route path='privacy' element={<Privacy />} />
         <Route path='terms' element={<TermsOfService />} />
       </Routes>
-
-      {/* <div>{user ? 'You are Logged In' : 'You are Logged Out'}</div> */}
     </div>
   )
 }

@@ -3,13 +3,10 @@ import { auth } from './firestore'
 
 export const signupWithGoogle = async () => {
   try {
-    // Create a GoogleAuthProvider instance
     const provider = new GoogleAuthProvider()
 
-    // Trigger Google sign-in popup
     const result = await signInWithPopup(auth, provider)
 
-    // The signed-in user info
     const user = result.user
 
     return user

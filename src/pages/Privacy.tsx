@@ -29,22 +29,22 @@ const Privacy = () => {
             <p>
               We may optionally collect data from the DoorDash Dasher app,
               encompassing various details such as delivery times, order status,
-              and store information.
+              and store information. Here is the data possibly collected:
             </p>
 
-            <pre>
-              {`
-        {
-          ACTUAL_DELIVERY_TIME: string
-          ACTUAL_PICKUP_TIME: string
-          ORDER_CREATED_TIME: string
-          ORDER_STATUS: string
-          STORE_NAME: string
-          SUBTOTAL_IN_CENTS: number
-          TOTAL_ITEM_COUNT: number
-        }[]
-        `}
-            </pre>
+            <div className='pre-container'>
+              <pre>
+                {`  {
+    ACTUAL_DELIVERY_TIME: string
+    ACTUAL_PICKUP_TIME: string
+    ORDER_CREATED_TIME: string
+    ORDER_STATUS: string
+    STORE_NAME: string
+    SUBTOTAL_IN_CENTS: number
+    TOTAL_ITEM_COUNT: number
+  }[]`}
+              </pre>
+            </div>
           </section>
           <section>
             <h2>2. Collection Method</h2>

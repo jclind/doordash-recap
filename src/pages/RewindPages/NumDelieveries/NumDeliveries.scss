@@ -97,27 +97,71 @@
       }
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 1000px) {
+      $text-font-size: 2.2rem;
       h1 {
-        font-size: 2rem;
+        font-size: $text-font-size;
       }
       .num-line {
         .num-deliveries {
           font-size: 7rem;
         }
         .orders-label {
-          font-size: 2rem;
+          font-size: $text-font-size;
         }
       }
       .text {
-        font-size: 2rem;
+        font-size: $text-font-size;
         span {
           font-size: 3rem;
         }
       }
     }
+    @media screen and (max-height: 800px) and (min-width: 800px) {
+      // background: red;
+      $text-font-size: 2.2rem;
+      margin-bottom: 3rem;
+      h1 {
+        font-size: $text-font-size;
+      }
+      .num-line {
+        .num-deliveries {
+          font-size: 7rem;
+        }
+        .orders-label {
+          font-size: $text-font-size;
+        }
+      }
+      .text {
+        font-size: $text-font-size;
+        span {
+          font-size: 3rem;
+        }
+      }
+    }
+    @media screen and (max-width: 600px) {
+      $text-font-size: 2rem;
+      h1 {
+        font-size: $text-font-size;
+      }
+      .num-line {
+        .num-deliveries {
+          font-size: 7rem;
+        }
+        .orders-label {
+          font-size: $text-font-size;
+        }
+      }
+      .text {
+        font-size: $text-font-size;
+        span {
+          font-size: 3rem;
+        }
+      }
+    }
+
     @media screen and (max-width: 500px) {
-      $text-font-size: 1.5em;
+      $text-font-size: 1.5rem;
       h1 {
         display: flex;
         // flex-direction: column;

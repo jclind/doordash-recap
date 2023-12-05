@@ -1,11 +1,8 @@
 const getLongestWordInString = (str: string): number => {
-  // Split the string into an array of words
   const words = str.split(' ')
 
-  // Initialize a variable to store the length of the longest word
   let maxLength = 0
 
-  // Iterate through each word and update maxLength if a longer word is found
   for (const word of words) {
     const length = word.length
     maxLength = Math.max(maxLength, length)
