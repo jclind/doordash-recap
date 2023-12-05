@@ -8,8 +8,8 @@
 - [x] Update Home Page Styles
 - [x] Add Tutorial For Getting Dashing Data
 - [x] Add Page Tracker To Recap Slideshow
-- [ ] Fix Transition From Page 1 To 2
-- [ ] Add SEO / React helmet meta tags
-- [ ] Privacy page code doesn't display well on mobile
+- [x] Fix Transition From Page 1 To 2
+- [x] Add SEO / React helmet meta tags
+- [x] Privacy page code doesn't display well on mobile
 - [x] Update share image for better quality? and remove border radius
-- [ ] Fix NumDeliveries folder typo
+- [x] Fix NumDeliveries folder typo
