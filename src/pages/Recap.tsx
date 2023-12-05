@@ -10,6 +10,7 @@ import Charts from './RewindPages/Charts/Charts'
 import MonthChart from './RewindPages/MonthChart/MonthChart'
 import { exampleData } from '../assets/data/exampleData'
 import RecapProgress from '../components/RecapProgress/RecapProgress'
+import { Helmet } from 'react-helmet'
 
 type RecapProps = {
   data: RewindData | null
@@ -42,31 +43,42 @@ const Recap = ({ data }: RecapProps) => {
   if (!recapData) return <Navigate to='/' />
 
   return (
-    <div className='rewind-page' onClick={handleClick}>
-      {/* <button className='btn-no-styles close-btn' onClick={handleClick}>
+    <>
+      <Helmet>
+        <title>Your Dasher Recap</title>
+        <meta
+          name='description'
+          content='View your recap data with cool animations and graphics.'
+        />
+      </Helmet>
+      <div className='rewind-page' onClick={handleClick}>
+        {/* <button className='btn-no-styles close-btn' onClick={handleClick}>
         <AiOutlineClose className='icon' />
       </button> */}
-      <RecapProgress
-        numPages={7}
-        currPage={currPage}
-        setCurrPage={setCurrPage}
-      />
-      {currPage === 0 && (
-        <NumDeliveries recapData={recapData} clicked={clicked} />
-      )}
-      {currPage === 1 && (
-        <NumStoresAndItems recapData={recapData} clicked={clicked} />
-      )}
-      {currPage === 2 && (
-        <SingleTopStore recapData={recapData} clicked={clicked} />
-      )}
-      {currPage === 3 && (
-        <TopStoresList recapData={recapData} clicked={clicked} />
-      )}
-      {currPage === 4 && <Charts recapData={recapData} clicked={clicked} />}
-      {currPage === 5 && <MonthChart recapData={recapData} clicked={clicked} />}
-      {currPage >= 6 && <Share recapData={recapData} />}
-    </div>
+        <RecapProgress
+          numPages={7}
+          currPage={currPage}
+          setCurrPage={setCurrPage}
+        />
+        {currPage === 0 && (
+          <NumDeliveries recapData={recapData} clicked={clicked} />
+        )}
+        {currPage === 1 && (
+          <NumStoresAndItems recapData={recapData} clicked={clicked} />
+        )}
+        {currPage === 2 && (
+          <SingleTopStore recapData={recapData} clicked={clicked} />
+        )}
+        {currPage === 3 && (
+          <TopStoresList recapData={recapData} clicked={clicked} />
+        )}
+        {currPage === 4 && <Charts recapData={recapData} clicked={clicked} />}
+        {currPage === 5 && (
+          <MonthChart recapData={recapData} clicked={clicked} />
+        )}
+        {currPage >= 6 && <Share recapData={recapData} />}
+      </div>
+    </>
   )
 }
 

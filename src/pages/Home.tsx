@@ -8,8 +8,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>My Title</title>
-        <link rel='canonical' href='http://mysite.com/example' />
+        <title>Dasher Recap</title>
       </Helmet>
       <div className='home-page page'>
         <div className='content'>
