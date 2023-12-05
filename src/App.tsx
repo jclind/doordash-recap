@@ -48,8 +48,7 @@ const App = () => {
       const res: RewindData = processCSVData(dataDD)
       setProcessedData(res)
       localStorage.setItem(LS_DOORDASH_RECAP_DATA, JSON.stringify(res))
-      console.log(res)
-      navigate('/rewind')
+      navigate('/recap')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataDD])
@@ -58,11 +57,11 @@ const App = () => {
 
   return (
     <div className='App'>
-      {currentPathname !== '/rewind' && <Nav />}
+      {currentPathname !== '/recap' && <Nav />}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='tutorial' element={<Tutorial setDataDD={setDataDD} />} />
-        <Route path='rewind' element={<Recap data={processedData} />} />
+        <Route path='recap' element={<Recap data={processedData} />} />
         <Route path='share/:recapID' element={<ShareCard />} />
         <Route path='privacy' element={<Privacy />} />
         <Route path='terms' element={<TermsOfService />} />

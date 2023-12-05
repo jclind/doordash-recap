@@ -27,8 +27,6 @@ const NumDeliveries = ({ recapData, clicked }: NumDeliveriesProps) => {
       </div>
       <div className='circle-1 circle' />
       <div className='circle-2 circle' />
-      {/* <div className='semi-circle-1 semi-circle'></div> */}
-      {/* <FaStar className='star-icon' /> */}
     </div>
   )
 }

@@ -24,7 +24,6 @@ const Recap = ({ data }: RecapProps) => {
   const useExampleData: boolean = !!useExampleDataParam
 
   const recapData = useExampleData ? exampleData : data
-  console.log(useExampleData)
 
   const [clicked, setClicked] = useState(false)
   const [currPage, setCurrPage] = useState(0)

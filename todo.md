@@ -8,3 +8,4 @@
 - [ ] Update Home Page Styles
 - [ ] Add Tutorial For Getting Dashing Data
 - [ ] Add Page Tracker To Recap Slideshow
+- [ ] Fix Transition From Page 1 To 2

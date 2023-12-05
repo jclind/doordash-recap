@@ -28,7 +28,11 @@ const RecapProgress = ({
 
     for (let i = 0; i <= numPages - 1; i++) {
       lines.push(
-        <button className='line-btn' onClick={e => handleLineClick(e, i)}>
+        <button
+          className='line-btn'
+          onClick={e => handleLineClick(e, i)}
+          key={i}
+        >
           <div
             className={`line ${currPage >= i ? 'highlighted' : 'dimmed'}`}
           ></div>

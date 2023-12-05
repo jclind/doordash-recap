@@ -4591,10 +4591,10 @@ const ShareableCard = ({
   const handleCreateAndCopyLink = async () => {
     if (!recapData) {
       console.error(
-        'Something went wrong fetching rewindData, please refresh and try again.'
+        'Something went wrong fetching recapData, please refresh and try again.'
       )
       throw new Error(
-        'Something went wrong fetching rewindData, please refresh and try again.'
+        'Something went wrong fetching recapData, please refresh and try again.'
       )
     }
     setCopyLinkStatus('loading')

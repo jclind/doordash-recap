@@ -35,7 +35,7 @@ const Home = () => {
             </Link>
           </div>
           <Link
-            to='/rewind?useExampleData=true'
+            to='/recap?useExampleData=true'
             className='btn-no-styles example'
           >
             Show Me An Example
