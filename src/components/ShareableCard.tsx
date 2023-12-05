@@ -4612,7 +4612,6 @@ const ShareableCard = ({
     const link = `${baseURL}/share/${cardID}`
 
     navigator.clipboard.writeText(link)
-    console.log(link)
 
     setCopyLinkStatus('copied')
     setTimeout(() => {

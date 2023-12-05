@@ -7,8 +7,6 @@ const Nav = () => {
   const location = useLocation()
   const currPath = location.pathname
 
-  console.log(currPath)
-
   return (
     <nav>
       <div className='logo-container'>

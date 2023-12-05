@@ -12,8 +12,6 @@ export const signupWithGoogle = async () => {
     // The signed-in user info
     const user = result.user
 
-    console.log('Successfully signed up with Google:', user)
-
     return user
   } catch (error: any) {
     console.error('Error signing up with Google:', error.message)

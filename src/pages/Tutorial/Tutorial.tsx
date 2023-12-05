@@ -1,8 +1,4 @@
 import React, { useState } from 'react'
-// import tutorial0 from '../../assets/images/tutorial-0.jpg'
-// import tutorial1 from '../../assets/images/tutorial-1.jpg'
-// import tutorial2 from '../../assets/images/tutorial-2.jpg'
-// import tutorial3 from '../../assets/images/tutorial-3.jpg'
 import './Tutorial.scss'
 import CollectCSV from '../../components/CollectCSV'
 import { DoorDashOrderType } from '../../types'
@@ -20,7 +16,6 @@ const Tutorial = ({ setDataDD }: TutorialProps) => {
   const pageParam = queryParams.get('page')
   const page = pageParam ? parseInt(pageParam, 10) : 1
 
-  console.log(page)
   const [step, setStep] = useState<number>(page - 1)
   const lastStepIndex = tutorialData.length - 1
 

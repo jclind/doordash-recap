@@ -43,10 +43,10 @@ const App = () => {
 
   useEffect(() => {
     if (dataDD) {
-      const res = processCSVData(dataDD)
+      const res: RewindData = processCSVData(dataDD)
       setProcessedData(res)
-      console.log(res.topChainStores, res.topIndividualStores)
       localStorage.setItem(LS_DOORDASH_RECAP_DATA, JSON.stringify(res))
+      console.log(res)
       navigate('/rewind')
     }
   }, [dataDD])

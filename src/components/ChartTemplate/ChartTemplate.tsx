@@ -22,7 +22,6 @@ const ChartTemplate = ({
   const spacedValues = calcEvenlySpacedValues(chartMin, chartMax)
 
   const updatedChartMax = spacedValues[0]
-  console.log(updatedChartMax)
 
   return (
     <div className='chart'>

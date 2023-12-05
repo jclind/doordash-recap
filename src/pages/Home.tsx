@@ -34,7 +34,10 @@ const Home = () => {
               Upload Data
             </Link>
           </div>
-          <Link to='/rewind' className='btn-no-styles example'>
+          <Link
+            to='/rewind?useExampleData=true'
+            className='btn-no-styles example'
+          >
             Show Me An Example
           </Link>
         </div>

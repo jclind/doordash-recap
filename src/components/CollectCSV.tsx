@@ -9,8 +9,6 @@ type CollectCSVProps = {
 
 const CollectCSV = ({ setData }: CollectCSVProps) => {
   const handleCSV = (data: any[], fileInfo: IFileInfo, originalFile?: File) => {
-    // console.log(data)
-    // console.log(fileInfo)
     setData(data)
   }
 
