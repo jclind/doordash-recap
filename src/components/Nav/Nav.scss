@@ -21,6 +21,10 @@ nav {
 
     height: 40px;
     min-width: 40px;
+
+    &:focus {
+      outline: 2px solid $primary;
+    }
   }
   img {
     height: 30px;
