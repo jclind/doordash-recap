@@ -13,6 +13,7 @@ import { PiShareFatFill } from 'react-icons/pi'
 import { MdLeaderboard } from 'react-icons/md'
 import html2canvas from 'html2canvas'
 import AddToLeaderboardModal from './AddToLeaderboardModal'
+import { createTrendString } from '../util/dataTrends'
 
 const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -35,8 +36,17 @@ const ShareableCard = ({
   const [copyLinkStatus, setCopyLinkStatus] =
     useState<CopyLinkStatus>('default')
 
-  const { topChainStores, numOrders, totalDeliveryTimeMS, numChainStores } =
-    recapData
+  const {
+    topChainStores,
+    numOrders,
+    totalDeliveryTimeMS,
+    numChainStores,
+    timeSegments,
+    deliveriesPerDay,
+  } = recapData
+
+  const trendStringObj = createTrendString(deliveriesPerDay, timeSegments)
+  const topDashingTimeStr = `${trendStringObj.dayOfWeek} / ${trendStringObj.timeSegmentName}`
 
   const currYear = new Date().getFullYear()
 
@@ -144,8 +154,8 @@ const ShareableCard = ({
           </div>
         </div>
         <div className='bottom-info'>
-          <div className='title'>Top Dashing Times</div>
-          <div className='text'>- Sunday Night / 9PM - 12PM</div>
+          <div className='title'>Top Dashing Time</div>
+          <div className='text'>- {topDashingTimeStr}</div>
         </div>
         <div className='footer'>
           <div className='link'>doordash-recap.netlify.app</div>
