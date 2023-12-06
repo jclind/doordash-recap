@@ -15,3 +15,4 @@
 - [x] Fix NumDeliveries folder typo
 - [ ] Add Share Data button to share page
 - [ ] Add button focus for accessability
+- [ ] Check share card delivery time data
