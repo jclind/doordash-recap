@@ -4,6 +4,7 @@ import { getRecapData } from '../services/recap'
 import { RewindData } from '../types'
 import ShareableCard from '../components/ShareableCard'
 import { Helmet } from 'react-helmet'
+import './ShareCard.scss'
 
 const ShareCard = () => {
   const [recapData, setRecapData] = useState<RewindData | null | undefined>(
