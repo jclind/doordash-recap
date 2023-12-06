@@ -10,6 +10,7 @@ import TermsOfService from './pages/TermsOfService'
 import Nav from './components/Nav/Nav'
 import Tutorial from './pages/Tutorial/Tutorial'
 import Recap from './pages/Recap'
+import { Toaster } from 'react-hot-toast'
 
 Modal.setAppElement('#root')
 
@@ -53,6 +54,7 @@ const App = () => {
 
   return (
     <div className='App'>
+      <Toaster />
       {currentPathname !== '/recap' && <Nav />}
       <Routes>
         <Route path='/' element={<Home />} />

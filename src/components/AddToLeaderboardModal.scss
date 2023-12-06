@@ -1,0 +1,122 @@
+@import '../helpers.scss';
+
+.share-data-modal {
+  background: $primary-background;
+  width: 95%;
+  max-width: 500px;
+  height: 370px;
+  box-sizing: border-box;
+  padding: 2rem 1rem;
+  border-radius: $border-radius;
+
+  @media screen and (max-width: 375px) {
+    height: 400px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  p {
+    text-align: center;
+    color: $secondary-text;
+    font-weight: 600;
+    font-size: 0.9rem;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+    .icon-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      height: 60px;
+      width: 60px;
+      margin-bottom: 1rem;
+      background: $tertiary;
+      .icon {
+        height: 32px;
+        width: 32px;
+        stroke-width: 5%;
+      }
+    }
+    h2 {
+      font-size: 1.1rem;
+    }
+    a {
+      border-radius: $border-radius;
+      padding: 0.75rem 1.5rem;
+      margin-top: 2rem;
+      border: 1px solid $primary;
+      text-decoration: none;
+    }
+  }
+
+  .add-name-container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 3rem;
+    label {
+      font-size: 0.9rem;
+      color: $primary;
+      font-weight: 500;
+      span {
+        color: $tertiary-text;
+      }
+    }
+    input {
+      margin-top: 0.5rem;
+      width: 100%;
+      background: $primary-background;
+      outline: none;
+      border: 1px solid $tertiary-text;
+      border-radius: $border-radius;
+      height: 40px;
+      padding: 0 0.5rem;
+      box-sizing: border-box;
+      color: $primary;
+      font-weight: 500;
+
+      &::placeholder {
+        color: $tertiary-background;
+      }
+
+      &:focus {
+        outline-offset: 2px;
+        border-color: $primary;
+      }
+    }
+  }
+  .btns {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0 auto;
+    margin-top: 4rem;
+    max-width: 90%;
+    button.action-btn {
+      width: 120px;
+    }
+    button.cancel {
+      background: $secondary-background;
+      color: $tertiary-text;
+      border: none;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+    button.submit {
+      background: $tertiary;
+      color: $white;
+      border: none;
+    }
+  }
+}

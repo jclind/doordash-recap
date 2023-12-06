@@ -11,6 +11,7 @@ import './ShareableCard.scss'
 import { Link } from 'react-router-dom'
 import { PiShareFatFill } from 'react-icons/pi'
 import html2canvas from 'html2canvas'
+import AddToLeaderboardModal from './AddToLeaderboardModal'
 
 const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -22,6 +23,8 @@ const ShareableCard = ({
   recapData,
   createYourOwnBtn = false,
 }: ShareableCardProps) => {
+  const [addToLeaderboardModalOpen, setAddToLeaderboardModalOpen] =
+    useState(true)
   const [shareModalOpen, setShareModalOpen] = useState(false)
 
   const [imgURL, setImgURL] = useState<string | null>(null)
@@ -156,6 +159,11 @@ const ShareableCard = ({
         imgURL={imgURL}
         handleCreateAndCopyLink={handleCreateAndCopyLink}
         copyLinkStatus={copyLinkStatus}
+      />
+      <AddToLeaderboardModal
+        isOpen={addToLeaderboardModalOpen}
+        setIsOpen={setAddToLeaderboardModalOpen}
+        recapData={recapData}
       />
     </div>
   )
