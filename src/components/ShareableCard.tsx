@@ -10,6 +10,7 @@ import { customAlphabet } from 'nanoid'
 import './ShareableCard.scss'
 import { Link } from 'react-router-dom'
 import { PiShareFatFill } from 'react-icons/pi'
+import { MdLeaderboard } from 'react-icons/md'
 import html2canvas from 'html2canvas'
 import AddToLeaderboardModal from './AddToLeaderboardModal'
 
@@ -18,13 +19,15 @@ const alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 type ShareableCardProps = {
   recapData: RewindData
   createYourOwnBtn?: boolean
+  shareToLeaderboardBtn?: boolean
 }
 const ShareableCard = ({
   recapData,
   createYourOwnBtn = false,
+  shareToLeaderboardBtn = false,
 }: ShareableCardProps) => {
   const [addToLeaderboardModalOpen, setAddToLeaderboardModalOpen] =
-    useState(true)
+    useState(false)
   const [shareModalOpen, setShareModalOpen] = useState(false)
 
   const [imgURL, setImgURL] = useState<string | null>(null)
@@ -53,7 +56,28 @@ const ShareableCard = ({
       })
     }
   }
-  const handleCreateAndCopyLink = async () => {
+  const copyLink = (id: string) => {
+    const baseURL = window.location.origin
+    const link = `${baseURL}/share/${id}`
+
+    navigator.clipboard.writeText(link)
+  }
+  const handleDataUpload = async (id: string) => {
+    setCopyLinkStatus('loading')
+    try {
+      const sharedCardDataCollection = collection(db, 'sharedCardData')
+      await setDoc(doc(sharedCardDataCollection, id), recapData)
+    } catch (error) {
+      console.error(error)
+      setCopyLinkStatus('default')
+    }
+
+    setCopyLinkStatus('copied')
+    setTimeout(() => {
+      setCopyLinkStatus('default')
+    }, 3000)
+  }
+  const handleCreateAndCopyLink = () => {
     if (!recapData) {
       console.error(
         'Something went wrong fetching recapData, please refresh and try again.'
@@ -62,26 +86,11 @@ const ShareableCard = ({
         'Something went wrong fetching recapData, please refresh and try again.'
       )
     }
-    setCopyLinkStatus('loading')
+
     const nanoid = customAlphabet(alphabet, 12)
     const cardID = nanoid()
-    try {
-      const sharedCardDataCollection = collection(db, 'sharedCardData')
-      await setDoc(doc(sharedCardDataCollection, cardID), recapData)
-    } catch (error) {
-      console.error(error)
-      setCopyLinkStatus('default')
-    }
-
-    const baseURL = window.location.origin
-    const link = `${baseURL}/share/${cardID}`
-
-    navigator.clipboard.writeText(link)
-
-    setCopyLinkStatus('copied')
-    setTimeout(() => {
-      setCopyLinkStatus('default')
-    }, 3000)
+    copyLink(cardID)
+    handleDataUpload(cardID)
   }
 
   return (
@@ -147,6 +156,15 @@ const ShareableCard = ({
           <PiShareFatFill className='icon' />
           Share Recap
         </button>
+        {shareToLeaderboardBtn && (
+          <button
+            className='btn-no-styles share-btn'
+            onClick={() => setAddToLeaderboardModalOpen(true)}
+          >
+            <MdLeaderboard className='icon' />
+            Add To Leaderboard
+          </button>
+        )}
         {createYourOwnBtn && (
           <Link to='/' className='create-btn link btn-no-styles'>
             Create Your Recap

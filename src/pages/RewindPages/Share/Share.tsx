@@ -16,7 +16,7 @@ const Share = ({ recapData }: ShareProps) => {
   return (
     <div className='share-page'>
       <div className='share-card-container'>
-        <ShareableCard recapData={recapData} />
+        <ShareableCard recapData={recapData} shareToLeaderboardBtn />
       </div>
       <div className='share-info'>
         <h1 className='title'>Share Your Recap</h1>

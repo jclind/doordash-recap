@@ -151,7 +151,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
     margin-top: 2rem;
 
     button,
@@ -180,6 +180,13 @@
     }
     .create-btn {
       background: $secondary;
+    }
+
+    @media screen and (max-width: 400px) {
+      gap: 1rem;
+      button {
+        font-size: 0.8rem;
+      }
     }
   }
 }
