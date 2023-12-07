@@ -21,11 +21,11 @@ const Share = ({ recapData }: ShareProps) => {
       <div className='share-info'>
         <h1 className='title'>Share Your Recap</h1>
         <p>
-          Share the highlights of your DoorDash journey with friends and on your
+          Share the highlights of your DoorDash journey with friends on your
           favorite social platforms!
         </p>
         <p>
-          If you enjoyed revisiting your past year or deliveries, consider
+          If you enjoyed revisiting your past year of deliveries, consider
           staying tuned for more exciting projects or treating me to a coffee.
           Your support is greatly appreciated. Thank you for using Doordash
           Recap!

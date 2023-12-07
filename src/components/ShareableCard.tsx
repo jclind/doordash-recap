@@ -110,7 +110,7 @@ const ShareableCard = ({
           <div className='header-text'>
             <div className='doordash-logo'>
               <img src={doordashLogo} alt='doordash logo' />
-              <div className='text'>DOORDASH</div>
+              <div className='text'>DASHER</div>
             </div>
             <div className='wrapped-text'>{currYear} RECAP</div>
           </div>
@@ -158,7 +158,7 @@ const ShareableCard = ({
           <div className='text'>- {topDashingTimeStr}</div>
         </div>
         <div className='footer'>
-          <div className='link'>doordash-recap.netlify.app</div>
+          <div className='link'>dasher-recap.netlify.app</div>
         </div>
       </div>
       <div className='action-btns'>
