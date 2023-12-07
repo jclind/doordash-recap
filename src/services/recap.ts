@@ -45,7 +45,6 @@ export const addLeaderboardData = async (
     await setDoc(docRef, data)
   } catch (error: any) {
     const message = error.message || error
-    console.log(message)
     toast.error(message, { position: 'bottom-center' })
   }
 }
@@ -88,7 +87,6 @@ export const getLeaderboardData = async (
     return { data: results, lastDoc: newLastDoc, totalResults }
   } catch (error: any) {
     const message = error.message || error
-    console.log(message)
     toast.error(message, { position: 'bottom-center' })
     return null
   }
