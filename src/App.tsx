@@ -64,7 +64,10 @@ const App = () => {
         <Route path='share/:recapID' element={<ShareCard />} />
         <Route path='privacy' element={<Privacy />} />
         <Route path='terms' element={<TermsOfService />} />
-        <Route path='leaderboard' element={<Leaderboard />} />
+        <Route
+          path='leaderboard'
+          element={<Leaderboard recapData={processedData} />}
+        />
       </Routes>
     </div>
   )

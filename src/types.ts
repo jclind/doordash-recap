@@ -1,3 +1,5 @@
+import { DocumentData, QueryDocumentSnapshot } from 'firebase/firestore'
+
 export interface DoorDashOrderType {
   ACTUAL_DELIVERY_TIME: string
   ACTUAL_PICKUP_TIME: string
@@ -90,3 +92,10 @@ export type ChartTemplateDataType = {
     label: string
   }
 }
+
+export type LeaderboardDataType = {
+  authorName: string | null
+  datePosted: number
+} & RewindData
+
+export type FirestoreDocType = QueryDocumentSnapshot<DocumentData, DocumentData>
