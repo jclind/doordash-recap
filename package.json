@@ -1,6 +1,6 @@
 {
   "name": "doordash-rewind",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": true,
   "dependencies": {
     "@types/react": "^18.2.37",
