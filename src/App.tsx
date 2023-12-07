@@ -10,6 +10,8 @@ import TermsOfService from './pages/TermsOfService'
 import Nav from './components/Nav/Nav'
 import Tutorial from './pages/Tutorial/Tutorial'
 import Recap from './pages/Recap'
+import { Toaster } from 'react-hot-toast'
+import Leaderboard from './pages/Leaderboard/Leaderboard'
 
 Modal.setAppElement('#root')
 
@@ -53,6 +55,7 @@ const App = () => {
 
   return (
     <div className='App'>
+      <Toaster />
       {currentPathname !== '/recap' && <Nav />}
       <Routes>
         <Route path='/' element={<Home />} />
@@ -61,6 +64,10 @@ const App = () => {
         <Route path='share/:recapID' element={<ShareCard />} />
         <Route path='privacy' element={<Privacy />} />
         <Route path='terms' element={<TermsOfService />} />
+        <Route
+          path='leaderboard'
+          element={<Leaderboard recapData={processedData} />}
+        />
       </Routes>
     </div>
   )

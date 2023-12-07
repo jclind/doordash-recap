@@ -14,11 +14,11 @@ const Home = () => {
         <div className='content'>
           <div className='header'>
             <h1>
-              Your DoorDash Deliveries
+              Your Yearly
               <br />
-              Yearly Recap
+              Dasher Recap
             </h1>
-            <p>Like Spotify Wrapped, but for DoorDash drivers.</p>
+            <p>Like Spotify Wrapped, but for Dashers.</p>
           </div>
 
           <div className='options'>

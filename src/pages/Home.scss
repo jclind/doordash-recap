@@ -11,7 +11,10 @@
   min-height: 600px;
   box-sizing: border-box;
   overflow-x: hidden;
+  width: 100%;
   .content {
+    width: 100%;
+    margin: 0 auto;
     .header {
       h1 {
         color: $secondary;
@@ -98,6 +101,17 @@
             width: 90%;
             max-width: 300px;
           }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .options {
+      width: 100%;
+      .top-btns {
+        width: 100%;
+        a {
+          width: 100%;
         }
       }
     }

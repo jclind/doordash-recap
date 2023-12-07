@@ -13,3 +13,6 @@
 - [x] Privacy page code doesn't display well on mobile
 - [x] Update share image for better quality? and remove border radius
 - [x] Fix NumDeliveries folder typo
+- [ ] Add Share Dasher Recap to leaderboard
+- [ ] Add button focus for accessability
+- [x] Check share card delivery time data

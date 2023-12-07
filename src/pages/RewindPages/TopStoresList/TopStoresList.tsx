@@ -17,7 +17,7 @@ const TopStoresList = ({ recapData, clicked }: TopStoresListProps) => {
         {topChainStores.slice(0, 7).map(currStore => {
           const { store: name, totalTimesDelivered } = currStore
           return (
-            <div className='store'>
+            <div className='store' key={name}>
               <div className='name'>
                 {concatString(`${name}`, 22).toLowerCase()}
               </div>

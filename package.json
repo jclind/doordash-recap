@@ -1,6 +1,6 @@
 {
   "name": "doordash-rewind",
-  "version": "0.1.0",
+  "version": "1.0.5",
   "private": true,
   "dependencies": {
     "@types/react": "^18.2.37",
@@ -15,6 +15,7 @@
     "react-csv-reader": "^4.0.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^4.12.0",
     "react-loader-spinner": "^5.4.5",
     "react-modal": "^3.16.1",
@@ -47,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.3"
   }
 }

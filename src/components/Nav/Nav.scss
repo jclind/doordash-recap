@@ -6,6 +6,10 @@ nav {
   top: 0;
   left: 0;
   right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
   padding: 0 2rem;
   padding-top: 1rem;
   width: 100%;
@@ -21,6 +25,10 @@ nav {
 
     height: 40px;
     min-width: 40px;
+
+    &:focus {
+      outline: 2px solid $primary;
+    }
   }
   img {
     height: 30px;
@@ -36,6 +44,14 @@ nav {
     text-decoration: none;
     color: $secondary;
     text-wrap: nowrap;
+  }
+
+  .leaderboard-btn {
+    .icon {
+      color: $primary;
+      height: 25px;
+      width: 25px;
+    }
   }
 
   @media screen and (max-width: 600px) {
